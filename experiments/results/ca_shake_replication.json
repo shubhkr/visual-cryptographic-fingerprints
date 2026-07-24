@@ -1,0 +1,27 @@
+{
+  "_comment": "Robustness check for the cellular-automata encoding. The original implementation seeded 768 of 1024 cells from NumPy's legacy Mersenne Twister keyed on digest_bytes[:4]; ca_shake.py derives the entire board from SHAKE-256. Identical measurement protocol: 10,000 random pairs drawn from 5,000 samples, plus 20 targets x 2,000 independent candidates.",
+  "protocol": {
+    "samples": 5000,
+    "pairs": 10000,
+    "mining_targets": 20,
+    "mining_budget_M": 2000,
+    "image_size": 64,
+    "phash": "ImageHash phash, hash_size=8, highfreq_factor=4 (64-bit)"
+  },
+  "original_prng_seeded": {
+    "ssim_mean": 0.0187, "ssim_max": 0.1645,
+    "phash_mean": 15.3154, "phash_sd": 2.7998, "phash_min": 5,
+    "mining_ssim_max": 0.1857, "mining_phash_min": 4, "mining_phash_mean": 6.00
+  },
+  "shake256_seeded": {
+    "ssim_mean": 0.0181, "ssim_max": 0.1945,
+    "phash_mean": 15.30, "phash_sd": 2.77, "phash_min": 5,
+    "mining_ssim_max": 0.1957, "mining_phash_min": 5, "mining_phash_mean": 5.95
+  },
+  "conclusion": "Unchanged. The perceptual-hash clustering of the cellular family is a property of the encoding, not an artifact of the seeding defect. The one-unit difference in best-of-M minima (4 vs 5) is within run-to-run variation on a minimum taken over 20 targets; the means (6.00 vs 5.95) agree.",
+  "golden_test_vectors_sha256_of_pixels": {
+    "llama3-70b-v1": "85f422df3f32c5f439f4364f16c2214e52fed314f1325d38653bab6492ad315b",
+    "gpt2-base": "0618fbc44993e107a34517698af774ee72d35a28e0b8a505be76da992df531c6",
+    "mistral-7b-instruct": "0e5279836e06ea06c69fd65daf78b0d570026c0de4de3ad7790f9565ea82d48e"
+  }
+}

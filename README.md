@@ -66,9 +66,6 @@ outputs look alike, because they do.
 **Conclusion: none of the three families is deployment-ready**, and single-metric
 validation of visual fingerprint schemes is unsound.
 
-> ⚠️ An earlier version of this README recommended cellular automata on the basis
-> of SSIM alone. That recommendation was wrong and has been retracted.
-
 ## Repository Structure
 
 ```

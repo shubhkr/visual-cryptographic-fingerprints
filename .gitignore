@@ -15,3 +15,4 @@ vcf_outputs/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+paper/

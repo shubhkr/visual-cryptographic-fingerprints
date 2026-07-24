@@ -87,7 +87,7 @@ visual-cryptographic-fingerprints/
 ## Quick Start
 
 ```bash
-git clone https://github.com/shubhkr/visual-cryptographic-fingerprints.git
+git clone *repo_link*
 cd visual-cryptographic-fingerprints
 pip install -r requirements.txt
 python src/vcf_prototype.py

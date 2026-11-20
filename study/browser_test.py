@@ -83,7 +83,7 @@ def play(page, base, pid, quick, rng, shots, save_url=None):
             page.keyboard.press("f" if rng.random() < p_same else "j")
         elif task == "attention":
             page.wait_for_timeout(300)
-            page.keyboard.press("j")
+            page.keyboard.press(trial.get("expected_key", "j"))
         elif task == "end" and save_url:
             end_text = page.inner_text("#jspsych-content")
             if "Return to Prolific" in end_text or "Finish" in end_text:

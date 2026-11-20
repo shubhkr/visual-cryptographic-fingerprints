@@ -126,13 +126,18 @@ function feedbackTrial() {
   };
 }
 
+// The required key alternates (J, F, J) so that pressing one key all the
+// time cannot pass every check.
+const ATTENTION_KEYS = ["j", "f", "j"];
+
 function attentionTrial(n) {
+  const key = ATTENTION_KEYS[n % ATTENTION_KEYS.length];
   return {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: `<p class="attn">This is an attention check.<br>Please press <b>J</b> now.</p>`,
+    stimulus: `<p class="attn">This is an attention check.<br>Please press <b>${key.toUpperCase()}</b> now.</p>`,
     choices: ["f", "j"],
-    data: { task: "attention", attention_index: n },
-    on_finish: (d) => (d.passed = d.response === "j"),
+    data: { task: "attention", attention_index: n, expected_key: key },
+    on_finish: (d) => (d.passed = d.response === key),
   };
 }
 

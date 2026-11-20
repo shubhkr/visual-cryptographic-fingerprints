@@ -45,7 +45,7 @@ def exclusions(df, include_debug=False):
         })
     t = pd.DataFrame(rows)
     t["excluded"] = ((t.debug & (not include_debug)) | ~t.complete | (t.attention_failed >= 2) | (t.fast_share > 0.10)
-                     | (t.random_acc < 0.5))
+                     | (t.random_acc < 0.5) | (t.same_acc < 0.5))
     return set(t.loc[~t.excluded, "participant"]), t
 
 

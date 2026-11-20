@@ -49,7 +49,7 @@ and counterbalanced across participants.
 | Voronoi             | 16   | 4               | 6 pHash-hard, 6 SSIM-hard |
 
 That gives 160 main trials, 4 practice trials with feedback and 3
-instructed-response attention checks.
+instructed-response attention checks (press J, press F, press J).
 
 **Stimuli.** 48 targets per representation. Each hard mismatch is the closest
 of 2^16 random candidate digests to its target: under pHash or SSIM for
@@ -92,7 +92,13 @@ A participant is excluded if any of the following holds:
 2. more than 10% of main trials have a response time under 200 ms;
 3. accepts at least half of the random mismatches (accuracy below 50% on
    pairs that are obviously different);
-4. did not complete all 160 main trials.
+4. rejects at least half of the matching pairs (accuracy below 50% on
+   "same" trials);
+5. did not complete all 160 main trials.
+
+Rules 3 and 4 together catch a participant who presses the same key on
+every trial. The attention checks ask for J, then F, then J, for the same
+reason.
 
 No trial-level exclusions. No other data are removed.
 

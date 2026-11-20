@@ -4,7 +4,7 @@
 
 const CONFIG = {
   // ACTION: web-app URL of the Google Apps Script in study/save_to_drive.gs
-  SAVE_URL: "REPLACE_WITH_APPS_SCRIPT_URL",
+  SAVE_URL: "https://script.google.com/macros/s/AKfycbxAk2yTh4d9gVA2rl1YlxDcnQlhpq0Mxjju-RhtK5OH1_gTSO1hrG6fU4nKO_NAeDsbrw/exec",
   // ACTION: completion code from your Prolific study
   PROLIFIC_COMPLETION_CODE: "REPLACE_WITH_PROLIFIC_CODE",
   // ACTION: researcher contact shown on the consent page

@@ -21,6 +21,9 @@ This repository contains:
 - **`src/metrics.py`**, batched SSIM and pHash, numerically identical to
   scikit-image and ImageHash
 - **`experiments/run_v2.py`**, every experiment in the paper, seeded
+- **`experiments/measure_scale.py`**, a matched-pair benchmark: the same 4,096
+  digest pairs scored under 12 configurations and 3 display sizes, with
+  fixed and proportional SSIM windows and per-pair SSIM/pHash rank correlation
 - **`experiments/results/v2_*.json`**, raw results
 - the reviewed-version code and results (`src/vcf_prototype.py`,
   `src/ca_shake.py`, `experiments/results/collision_results.json`,
@@ -93,10 +96,11 @@ visual-cryptographic-fingerprints/
 ├── src/
 │   ├── vcf_v2.py             # encodings, spec v2 (use this)
 │   ├── metrics.py            # batched SSIM / pHash
-│   ├── vcf_prototype.py      # reviewed version (v1), kept for provenance
-│   └── ca_shake.py           # reviewed-version SHAKE-256 CA replication
+│   ├── vcf_prototype.py      # reviewed version (v1), frozen for provenance
+│   └── ca_shake.py           # standalone SHAKE-256 CA with golden-vector check
 ├── experiments/
 │   ├── run_v2.py             # all revision experiments
+│   ├── measure_scale.py      # matched-pair benchmark (12 configs × 3 sizes)
 │   ├── fill_paper.py         # fills paper numbers from results/*.json
 │   ├── run_experiments.sh    # reproduces everything
 │   └── results/
@@ -106,6 +110,8 @@ visual-cryptographic-fingerprints/
 │       ├── v2_scalectl.json        # feature-scale control
 │       ├── v2_sweep.json           # parameter sweep
 │       ├── v2_symmetry.json        # mirror-symmetry controls
+│       ├── scale_sensitivity.json  # matched-pair benchmark (spec v2)
+│       ├── scale_sensitivity_legacy_voronoi.json  # same, v1 Voronoi intensities
 │       ├── collision_results.json  # reviewed version (v1)
 │       └── ca_shake_replication.json
 └── examples/                 # sample fingerprints (v1 renderer)
@@ -152,6 +158,21 @@ python experiments/run_v2.py scale cellular   # one 2^20 search, 10-40 minutes
 
 All sampling is seeded. Every number in the paper is filled from the JSON files
 by `experiments/fill_paper.py`.
+
+The matched-pair benchmark is a separate script:
+
+```bash
+python experiments/measure_scale.py --output experiments/results/scale_sensitivity.json
+```
+
+Its random-walk and cellular rows are byte-identical to an independent
+implementation run on the same pairs. Only the Voronoi rows differ, because
+spec v2 takes cell intensities from separate SHAKE-256 bytes.
+`scale_sensitivity_legacy_voronoi.json` holds the run with the v1 Voronoi
+intensities; it reproduces at commit `518fc30`.
+
+`src/vcf_prototype.py` is the reviewed (v1) code, unchanged, so
+`collision_results.json` still reproduces from it.
 
 ### Caveats
 

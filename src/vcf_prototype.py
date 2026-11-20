@@ -20,11 +20,6 @@ from scipy.spatial import Voronoi
 from skimage.metrics import structural_similarity as ssim
 import imagehash
 
-if __package__:
-    from .ca_shake import CA_SIZE, CA_STEPS, ca_encode_shake as ca_encode, ca_to_image
-else:
-    from ca_shake import CA_SIZE, CA_STEPS, ca_encode_shake as ca_encode, ca_to_image
-
 
 # ============================================================
 # Encoding A: Random-Walk Grid (Drunken Bishop)
@@ -33,18 +28,18 @@ else:
 GRID_W, GRID_H = 17, 9
 CHAR_RAMP = " .o+=*BOX@%&#/^SE"
 
-def randomwalk_encode(digest_bytes: bytes, width: int = GRID_W,
-                      height: int = GRID_H) -> np.ndarray:
-    """Return the visit-count matrix for a bounded Drunken Bishop walk."""
-    grid = np.zeros((height, width), dtype=np.int32)
-    x, y = width // 2, height // 2
+def randomwalk_encode(digest_bytes: bytes) -> np.ndarray:
+    """Drunken bishop walk on 17x9 grid from SHA-256 digest.
+    Returns visit-count matrix (H x W) as uint8."""
+    grid = np.zeros((GRID_H, GRID_W), dtype=np.int32)
+    x, y = GRID_W // 2, GRID_H // 2
     for byte in digest_bytes:
         for shift in (0, 2, 4, 6):
             pair = (byte >> shift) & 0x03
             dx = 1 if (pair & 1) else -1
             dy = 1 if (pair & 2) else -1
-            x = max(0, min(width - 1, x + dx))
-            y = max(0, min(height - 1, y + dy))
+            x = max(0, min(GRID_W - 1, x + dx))
+            y = max(0, min(GRID_H - 1, y + dy))
             grid[y, x] += 1
     return grid
 
@@ -77,6 +72,55 @@ def randomwalk_to_image(grid: np.ndarray, size: int = 64) -> np.ndarray:
 
 
 # ============================================================
+# Encoding B: Cellular Automata (LifeHash-like)
+# ============================================================
+
+CA_SIZE = 32
+CA_STEPS = 8
+
+def ca_encode(digest_bytes: bytes, grid_size: int = CA_SIZE,
+              steps: int = CA_STEPS) -> np.ndarray:
+    """Seed a Game-of-Life CA with digest bits, evolve, return final state.
+    Returns accumulated heat map (grid_size x grid_size) as uint8."""
+    bits = np.unpackbits(np.frombuffer(digest_bytes, dtype=np.uint8))
+    n_cells = grid_size * grid_size
+    seed = np.zeros(n_cells, dtype=np.uint8)
+    seed[:len(bits)] = bits[:n_cells]
+    np.random.seed(int.from_bytes(digest_bytes[:4], 'big'))
+    if len(bits) < n_cells:
+        extra = np.random.randint(0, 2, n_cells - len(bits), dtype=np.uint8)
+        seed[len(bits):] = extra
+    board = seed.reshape(grid_size, grid_size)
+    # enforce horizontal symmetry for recognizability
+    half = grid_size // 2
+    board[:, half:] = np.fliplr(board[:, :half + (grid_size % 2)])
+
+    heat = board.astype(np.int32).copy()
+    for _ in range(steps):
+        padded = np.pad(board, 1, mode='wrap')
+        neighbors = sum(
+            padded[r:r + grid_size, c:c + grid_size]
+            for r in range(3) for c in range(3)
+        ) - board
+        new_board = np.where(
+            (board == 1) & ((neighbors == 2) | (neighbors == 3)), 1,
+            np.where((board == 0) & (neighbors == 3), 1, 0)
+        ).astype(np.uint8)
+        board = new_board
+        heat += board
+    return heat
+
+
+def ca_to_image(heat: np.ndarray, size: int = 64) -> np.ndarray:
+    """Render CA heat map as grayscale image."""
+    max_val = max(heat.max(), 1)
+    normed = (heat.astype(np.float64) / max_val * 255).astype(np.uint8)
+    img = Image.fromarray(normed, mode='L')
+    img = img.resize((size, size), Image.NEAREST)
+    return np.array(img)
+
+
+# ============================================================
 # Encoding C: Voronoi Tessellation
 # ============================================================
 
@@ -103,7 +147,7 @@ def voronoi_encode(digest_bytes: bytes, k: int = VORONOI_K,
 
 def voronoi_to_image(labels: np.ndarray, digest_bytes: bytes,
                      size: int = 64) -> np.ndarray:
-    """Map cells to grayscale using bytes reused from the coordinate digest."""
+    """Render Voronoi label map as grayscale image with distinct cell values."""
     k = labels.max() + 1
     lut = np.zeros(k, dtype=np.uint8)
     for i in range(k):
@@ -403,7 +447,7 @@ if __name__ == '__main__':
     # Step 2: Fast exact collision test on 100K samples
     exact_results = run_fast_exact_test(n_samples=100_000, img_size=64)
 
-    # Step 3: Smaller similarity test (5K images + 20 targets x 2K candidates)
+    # Step 3: Smaller similarity test (5K pairs + 20 targets x 2K candidates)
     print("\nRunning similarity analysis (reduced scale)...", flush=True)
     sim_results = run_collision_test(n_samples=5_000, img_size=64)
 

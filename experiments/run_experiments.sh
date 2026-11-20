@@ -21,6 +21,9 @@ run adaptive
 run scalectl
 run sweep
 run symmetry
+echo; echo "--- matched-pair benchmark ---"
+python experiments/measure_scale.py --output experiments/results/scale_sensitivity.json
+
 for v in randomwalk cellular voronoi cellular_nosym; do
   run scale "$v"
 done

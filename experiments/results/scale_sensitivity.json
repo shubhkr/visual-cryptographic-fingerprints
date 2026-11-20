@@ -2,6 +2,7 @@
   "protocol": {
     "pairs_per_condition": 4096,
     "input": "SHA-256 of vcf-scale-v1 followed by NUL and an 8-byte big-endian counter",
+    "encoder_spec": "vcf-v2",
     "display_sizes": [
       32,
       64,
@@ -17,9 +18,9 @@
     },
     "phash": "ImageHash pHash, hash_size=8, highfreq_factor=4",
     "versions": {
-      "numpy": "2.5.5",
+      "numpy": "2.5.3",
       "scipy": "1.18.1",
-      "Pillow": "13.0.0",
+      "Pillow": "12.3.0",
       "scikit-image": "0.26.0",
       "ImageHash": "4.3.2"
     }
@@ -352,110 +353,110 @@
     {
       "configuration": "voronoi_8",
       "display_size": 32,
-      "mean_ssim_window_7": 0.12831637739761842,
-      "p99_ssim_window_7": 0.3297618688551671,
-      "mean_ssim_relative_window": 0.4717010754708695,
-      "mean_phash_distance": 31.44775390625,
+      "mean_ssim_window_7": 0.13157621517860835,
+      "p99_ssim_window_7": 0.3234098747084018,
+      "mean_ssim_relative_window": 0.4727474856767664,
+      "mean_phash_distance": 31.623046875,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.36043197114390385,
-      "mean_odd_horizontal_phash_bit_frequency": 0.4902458190917969,
-      "expected_hamming_from_odd_horizontal_bits": 15.990046113729477
+      "spearman_ssim_and_negative_phash": 0.36709150272944224,
+      "mean_odd_horizontal_phash_bit_frequency": 0.4911460876464844,
+      "expected_hamming_from_odd_horizontal_bits": 15.990722209215164
     },
     {
       "configuration": "voronoi_8",
       "display_size": 64,
-      "mean_ssim_window_7": 0.3652845357112475,
-      "p99_ssim_window_7": 0.5118560451493902,
-      "mean_ssim_relative_window": 0.3652845357112475,
-      "mean_phash_distance": 31.47412109375,
+      "mean_ssim_window_7": 0.3669764024593185,
+      "p99_ssim_window_7": 0.5205503233961151,
+      "mean_ssim_relative_window": 0.3669764024593185,
+      "mean_phash_distance": 31.5927734375,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.20632972501288893,
-      "mean_odd_horizontal_phash_bit_frequency": 0.4909210205078125,
-      "expected_hamming_from_odd_horizontal_bits": 15.99154132604599
+      "spearman_ssim_and_negative_phash": 0.21130921497904956,
+      "mean_odd_horizontal_phash_bit_frequency": 0.491363525390625,
+      "expected_hamming_from_odd_horizontal_bits": 15.99180155992508
     },
     {
       "configuration": "voronoi_8",
       "display_size": 128,
-      "mean_ssim_window_7": 0.5611099714143919,
-      "p99_ssim_window_7": 0.6879361724791181,
-      "mean_ssim_relative_window": 0.32477532049597885,
-      "mean_phash_distance": 31.4736328125,
+      "mean_ssim_window_7": 0.5618401891013765,
+      "p99_ssim_window_7": 0.6930231592774196,
+      "mean_ssim_relative_window": 0.32676204371277734,
+      "mean_phash_distance": 31.59326171875,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.15145751096856652,
-      "mean_odd_horizontal_phash_bit_frequency": 0.49089813232421875,
-      "expected_hamming_from_odd_horizontal_bits": 15.991472125053406
+      "spearman_ssim_and_negative_phash": 0.16023796140793287,
+      "mean_odd_horizontal_phash_bit_frequency": 0.4913902282714844,
+      "expected_hamming_from_odd_horizontal_bits": 15.991841465234756
     },
     {
       "configuration": "voronoi_12",
       "display_size": 32,
-      "mean_ssim_window_7": 0.07269059952596829,
-      "p99_ssim_window_7": 0.24660998506720722,
-      "mean_ssim_relative_window": 0.39195325371890827,
-      "mean_phash_distance": 31.5,
+      "mean_ssim_window_7": 0.07217086994805932,
+      "p99_ssim_window_7": 0.2463972604805739,
+      "mean_ssim_relative_window": 0.39176534617685305,
+      "mean_phash_distance": 31.5068359375,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.4650620429018002,
-      "mean_odd_horizontal_phash_bit_frequency": 0.4907188415527344,
-      "expected_hamming_from_odd_horizontal_bits": 15.987991899251938
+      "spearman_ssim_and_negative_phash": 0.4488457272946848,
+      "mean_odd_horizontal_phash_bit_frequency": 0.4909095764160156,
+      "expected_hamming_from_odd_horizontal_bits": 15.990583032369614
     },
     {
       "configuration": "voronoi_12",
       "display_size": 64,
-      "mean_ssim_window_7": 0.27771748878798197,
-      "p99_ssim_window_7": 0.4019530277494928,
-      "mean_ssim_relative_window": 0.27771748878798197,
-      "mean_phash_distance": 31.517578125,
+      "mean_ssim_window_7": 0.27718638786403693,
+      "p99_ssim_window_7": 0.40478569244156565,
+      "mean_ssim_relative_window": 0.27718638786403693,
+      "mean_phash_distance": 31.61865234375,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.29652842402061225,
-      "mean_odd_horizontal_phash_bit_frequency": 0.4903678894042969,
-      "expected_hamming_from_odd_horizontal_bits": 15.987030118703842
+      "spearman_ssim_and_negative_phash": 0.27784071872862864,
+      "mean_odd_horizontal_phash_bit_frequency": 0.490936279296875,
+      "expected_hamming_from_odd_horizontal_bits": 15.990503549575806
     },
     {
       "configuration": "voronoi_12",
       "display_size": 128,
-      "mean_ssim_window_7": 0.49562197405076835,
-      "p99_ssim_window_7": 0.6066910248850889,
-      "mean_ssim_relative_window": 0.23730023306211748,
-      "mean_phash_distance": 31.5205078125,
+      "mean_ssim_window_7": 0.4956070456266224,
+      "p99_ssim_window_7": 0.6038810604407479,
+      "mean_ssim_relative_window": 0.23680304696011056,
+      "mean_phash_distance": 31.6083984375,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.22607474117253146,
-      "mean_odd_horizontal_phash_bit_frequency": 0.49036407470703125,
-      "expected_hamming_from_odd_horizontal_bits": 15.987114429473877
+      "spearman_ssim_and_negative_phash": 0.2026234385593984,
+      "mean_odd_horizontal_phash_bit_frequency": 0.4908790588378906,
+      "expected_hamming_from_odd_horizontal_bits": 15.990181893110275
     },
     {
       "configuration": "voronoi_16",
       "display_size": 32,
-      "mean_ssim_window_7": 0.046222921562390995,
-      "p99_ssim_window_7": 0.21171222637551726,
-      "mean_ssim_relative_window": 0.3324748645733654,
+      "mean_ssim_window_7": 0.04915685958604724,
+      "p99_ssim_window_7": 0.2188042080247291,
+      "mean_ssim_relative_window": 0.3341473287841978,
       "mean_phash_distance": 31.45556640625,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.4724351633271767,
-      "mean_odd_horizontal_phash_bit_frequency": 0.4903907775878906,
-      "expected_hamming_from_odd_horizontal_bits": 15.98559632897377
+      "spearman_ssim_and_negative_phash": 0.4913052819745725,
+      "mean_odd_horizontal_phash_bit_frequency": 0.4915924072265625,
+      "expected_hamming_from_odd_horizontal_bits": 15.991873800754547
     },
     {
       "configuration": "voronoi_16",
       "display_size": 64,
-      "mean_ssim_window_7": 0.21737170166119985,
-      "p99_ssim_window_7": 0.3273142397195723,
-      "mean_ssim_relative_window": 0.21737170166119985,
-      "mean_phash_distance": 31.46826171875,
+      "mean_ssim_window_7": 0.21903592945314926,
+      "p99_ssim_window_7": 0.3287498004221705,
+      "mean_ssim_relative_window": 0.21903592945314926,
+      "mean_phash_distance": 31.4794921875,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.30098469102325104,
-      "mean_odd_horizontal_phash_bit_frequency": 0.4902496337890625,
-      "expected_hamming_from_odd_horizontal_bits": 15.984646677970886
+      "spearman_ssim_and_negative_phash": 0.33643579532704176,
+      "mean_odd_horizontal_phash_bit_frequency": 0.4911460876464844,
+      "expected_hamming_from_odd_horizontal_bits": 15.990406066179276
     },
     {
       "configuration": "voronoi_16",
       "display_size": 128,
-      "mean_ssim_window_7": 0.44419613833762356,
-      "p99_ssim_window_7": 0.5405001049588675,
-      "mean_ssim_relative_window": 0.17951975710761148,
-      "mean_phash_distance": 31.466796875,
+      "mean_ssim_window_7": 0.4456796888420086,
+      "p99_ssim_window_7": 0.5370746195741101,
+      "mean_ssim_relative_window": 0.18136125947426923,
+      "mean_phash_distance": 31.4853515625,
       "p01_phash_distance": 22.0,
-      "spearman_ssim_and_negative_phash": 0.21815524545977263,
-      "mean_odd_horizontal_phash_bit_frequency": 0.49029541015625,
-      "expected_hamming_from_odd_horizontal_bits": 15.984744012355804
+      "spearman_ssim_and_negative_phash": 0.24263148240265237,
+      "mean_odd_horizontal_phash_bit_frequency": 0.4912147521972656,
+      "expected_hamming_from_odd_horizontal_bits": 15.990681558847427
     }
   ]
 }

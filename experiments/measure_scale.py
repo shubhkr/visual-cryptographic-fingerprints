@@ -13,32 +13,33 @@ from PIL import Image
 from scipy.stats import spearmanr
 from skimage.metrics import structural_similarity
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from src.vcf_prototype import (
-    ca_encode,
-    ca_to_image,
-    randomwalk_encode,
-    randomwalk_to_image,
-    voronoi_encode,
-    voronoi_to_image,
-)
-
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+import vcf_v2  # noqa: E402
 
 DISPLAY_SIZES = (32, 64, 128)
+# name -> (encoding, parameters) in the vcf_v2 specification
 CONFIGURATIONS = {
-    "walk_13x7": (randomwalk_encode, randomwalk_to_image, {"width": 13, "height": 7}),
-    "walk_17x9": (randomwalk_encode, randomwalk_to_image, {}),
-    "walk_23x13": (randomwalk_encode, randomwalk_to_image, {"width": 23, "height": 13}),
-    "life_24x24_8": (ca_encode, ca_to_image, {"grid_size": 24}),
-    "life_32x32_4": (ca_encode, ca_to_image, {"steps": 4}),
-    "life_32x32_8": (ca_encode, ca_to_image, {}),
-    "life_32x32_12": (ca_encode, ca_to_image, {"steps": 12}),
-    "life_48x48_8": (ca_encode, ca_to_image, {"grid_size": 48}),
-    "life_32x32_8_unmirrored": (ca_encode, ca_to_image, {"mirror": False}),
-    "voronoi_8": (voronoi_encode, voronoi_to_image, {"k": 8}),
-    "voronoi_12": (voronoi_encode, voronoi_to_image, {"k": 12}),
-    "voronoi_16": (voronoi_encode, voronoi_to_image, {}),
+    "walk_13x7": ("randomwalk", {"w": 13, "h": 7}),
+    "walk_17x9": ("randomwalk", {}),
+    "walk_23x13": ("randomwalk", {"w": 23, "h": 13}),
+    "life_24x24_8": ("cellular", {"n": 24}),
+    "life_32x32_4": ("cellular", {"steps": 4}),
+    "life_32x32_8": ("cellular", {}),
+    "life_32x32_12": ("cellular", {"steps": 12}),
+    "life_48x48_8": ("cellular", {"n": 48}),
+    "life_32x32_8_unmirrored": ("cellular", {"symmetric": False}),
+    "voronoi_8": ("voronoi", {"k": 8}),
+    "voronoi_12": ("voronoi", {"k": 12}),
+    "voronoi_16": ("voronoi", {}),
 }
+
+
+def render_all(encoding, parameters, digests, size, chunk=1024):
+    """Render every digest with vcf_v2, in chunks to bound memory."""
+    out = []
+    for start in range(0, len(digests), chunk):
+        out.extend(vcf_v2.render(encoding, digests[start:start + chunk], size, **parameters))
+    return out
 
 
 def summarize(images, size):
@@ -83,21 +84,16 @@ def run(pair_count):
         for index in range(2 * pair_count)
     ]
     results = []
-    for name, (encode, render, parameters) in CONFIGURATIONS.items():
+    for name, (encoding, parameters) in CONFIGURATIONS.items():
         print(f"Measuring {name}", flush=True)
-        encoded = [encode(digest, **parameters) for digest in digests]
         for size in DISPLAY_SIZES:
-            if render is voronoi_to_image:
-                images = [
-                    render(labels, digest, size) for labels, digest in zip(encoded, digests)
-                ]
-            else:
-                images = [render(values, size) for values in encoded]
+            images = render_all(encoding, parameters, digests, size)
             results.append({"configuration": name, "display_size": size, **summarize(images, size)})
     return {
         "protocol": {
             "pairs_per_condition": pair_count,
             "input": "SHA-256 of vcf-scale-v1 followed by NUL and an 8-byte big-endian counter",
+            "encoder_spec": vcf_v2.SPEC_VERSION,
             "display_sizes": DISPLAY_SIZES,
             "ssim_windows": {"fixed": 7, "relative": [3, 7, 15]},
             "phash": "ImageHash pHash, hash_size=8, highfreq_factor=4",

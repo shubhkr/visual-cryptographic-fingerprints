@@ -4,3 +4,4 @@ Pillow>=9.5.0
 scikit-image>=0.21.0
 ImageHash>=4.3.0
 matplotlib>=3.7.0
+pandas>=2.0.0

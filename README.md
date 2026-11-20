@@ -25,9 +25,12 @@ This repository contains:
   digest pairs scored under 12 configurations and 3 display sizes, with
   fixed and proportional SSIM windows and per-pair SSIM/pHash rank correlation
 - **`experiments/results/v2_*.json`**, raw results
+- **`study/`** and **`docs/`**, a preregistered human study (not yet run)
 - the reviewed-version code and results (`src/vcf_prototype.py`,
-  `src/ca_shake.py`, `experiments/results/collision_results.json`,
-  `experiments/results/ca_shake_replication.json`), kept for provenance
+  `experiments/results/collision_results.json`,
+  `experiments/results/ca_shake_replication.json`), kept for provenance, and
+  `src/ca_shake.py`, the standalone SHAKE-256 cellular encoder with a
+  golden-vector check
 
 ## Headline result
 
@@ -45,7 +48,8 @@ is a property of the encoding family**:
 
 The reviewed version of the paper explained the disagreement by Game-of-Life
 boards decaying to "sparse debris". **That explanation is wrong.** A board that
-is never evolved (`steps=0`) clusters in pHash exactly as much as an evolved one.
+is never evolved (`steps=0`) clusters in pHash just as much as an evolved one
+(15.5 vs 15.4 bits).
 
 | Configuration (10,000 random pairs)  | SSIM mean | pHash mean | pHash bits fixed in >95% of images |
 | ------------------------------------ | --------- | ---------- | ---------------------------------- |
@@ -57,7 +61,8 @@ is never evolved (`steps=0`) clusters in pHash exactly as much as an evolved one
 | Voronoi (default)                    | 0.22      | 31.5       | – |
 | Voronoi, **mirrored**                | 0.22      | **15.5**   | 33 |
 
-An ideal encoding has pHash mean 32 (one fixed bit, the DC term).
+pHash's first bit (the DC term) is the same for every image, so an ideal
+encoding has a mean distance of 31.5, not 32. Mirroring fixes 32 more bits.
 
 ### Main table (spec v2, original protocol)
 
@@ -182,7 +187,8 @@ Its random-walk and cellular rows are byte-identical to an independent
 implementation run on the same pairs. Only the Voronoi rows differ, because
 spec v2 takes cell intensities from separate SHAKE-256 bytes.
 `scale_sensitivity_legacy_voronoi.json` holds the run with the v1 Voronoi
-intensities; it reproduces at commit `518fc30`.
+intensities; it reproduces at the commit "update scripts", which still had the
+v1 Voronoi renderer.
 
 `src/vcf_prototype.py` is the reviewed (v1) code, unchanged, so
 `collision_results.json` still reproduces from it.
@@ -194,11 +200,14 @@ intensities; it reproduces at commit `518fc30`.
 - **Predicted values** for 2^24 and 2^28 extrapolate a pooled distance
   distribution measured over 2^28 target–candidate pairs; individual targets vary.
 - **pHash is a proxy** with known adversarial weaknesses, not ground truth.
-- **No textual baseline** (hex, Base32, sentence encodings) is measured.
+- **No textual baseline** (hex, Base32, sentence encodings) in the automated
+  measurements. The human study includes hexadecimal as its baseline.
 
 ## Dependencies
 
-Python 3.10+, NumPy, SciPy, Pillow, scikit-image, ImageHash.
+Python 3.10+, NumPy, SciPy, Pillow, scikit-image, ImageHash and pandas
+(`requirements.txt`). The study's browser test also needs Playwright and
+Chrome, and its design test needs Node.js.
 
 ## License
 

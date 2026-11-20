@@ -101,8 +101,8 @@ not yet run. Participants judge whether two fingerprints show the same release
 under five representations (hex, random walk, mirrored and unmirrored cellular,
 Voronoi). Hard mismatches are chosen under the same attacker budget (2^16
 candidates) for every representation. The experiment is a static jsPsych page
-in `docs/` (GitHub Pages), saves data through DataPipe and recruits on
-Prolific. See `study/README.md` to launch it and `study/PREREGISTRATION.md`
+in `docs/` (GitHub Pages), saves data to a private Google Drive folder through
+a small Apps Script, and recruits on Prolific. See `study/README.md` to launch it and `study/PREREGISTRATION.md`
 for the design.
 
 ## Repository structure

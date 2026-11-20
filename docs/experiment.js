@@ -3,8 +3,8 @@
 "use strict";
 
 const CONFIG = {
-  // ACTION: experiment ID from https://pipe.jspsych.org (saves data to your OSF project)
-  DATAPIPE_EXPERIMENT_ID: "REPLACE_WITH_DATAPIPE_ID",
+  // ACTION: web-app URL of the Google Apps Script in study/save_to_drive.gs
+  SAVE_URL: "REPLACE_WITH_APPS_SCRIPT_URL",
   // ACTION: completion code from your Prolific study
   PROLIFIC_COMPLETION_CODE: "REPLACE_WITH_PROLIFIC_CODE",
   // ACTION: researcher contact shown on the consent page
@@ -29,6 +29,11 @@ const STUDY_ID = url("STUDY_ID") || "";
 const SESSION_ID = url("SESSION_ID") || "";
 const DEBUG = url("debug") === "1";
 const QUICK = url("quick") === "1"; // two trials per block, for testing only
+// A local test server may receive the data instead of Google Drive. Allowed only
+// when the page itself is served from this computer, so a crafted link cannot
+// redirect real participants' data elsewhere.
+const LOCAL = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+const SAVE_URL = LOCAL && url("save_url") ? url("save_url") : CONFIG.SAVE_URL;
 const PARTICIPANT = PROLIFIC_PID || `anon-${jsPsych.randomization.randomID(10)}`;
 
 const design = StudyDesign.buildDesign(window.STIMULI, PARTICIPANT);
@@ -162,7 +167,8 @@ timeline.push({
       <h2>Consent</h2>
       <p>This is a research study about how people compare digital fingerprints of software releases.
       It takes about 15 minutes. You will see pairs of codes or images and decide whether they match.</p>
-      <p>We record your answers and response times. We do not collect your name or contact details.
+      <p>We record your answers and response times and store them in a private Google Drive folder
+      that only the researchers can open. We do not collect your name or contact details.
       Your Prolific ID is stored only to manage payment and is removed before the data are shared.
       You can stop at any time by closing the window.</p>
       <!-- ACTION: add ethics-review details required by your review body. -->
@@ -238,21 +244,52 @@ timeline.push({
   data: { task: "debrief" },
 });
 
+// Send the data to Google Drive. Text/plain avoids a CORS preflight, which
+// Apps Script does not answer. Retries three times before giving up.
+async function saveData() {
+  const body = JSON.stringify({
+    filename: `${PARTICIPANT}_${SESSION_ID || Date.now()}.csv`,
+    data: jsPsych.data.get().csv(),
+  });
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const r = await fetch(SAVE_URL, { method: "POST", headers: { "Content-Type": "text/plain" }, body });
+      const reply = await r.json();
+      if (reply.ok) return "saved";
+    } catch (e) {
+      /* retry */
+    }
+    await new Promise((res) => setTimeout(res, 1500 * attempt));
+  }
+  return "failed";
+}
+
+let SAVE_STATUS = DEBUG ? "debug" : "pending";
 if (!DEBUG) {
   timeline.push({
-    type: jsPsychPipe,
-    action: "save",
-    experiment_id: CONFIG.DATAPIPE_EXPERIMENT_ID,
-    filename: `${PARTICIPANT}_${SESSION_ID || Date.now()}.csv`,
-    data_string: () => jsPsych.data.get().csv(),
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "<p>Saving your answers. Please do not close this window.</p>",
+    choices: "NO_KEYS",
+    trial_duration: 300,
+    data: { task: "saving_notice" },
+  });
+  timeline.push({
+    type: jsPsychCallFunction,
+    async: true,
+    func: (done) => saveData().then((status) => { SAVE_STATUS = status; done(status); }),
+    data: { task: "save" },
   });
 }
 
 timeline.push({
   type: jsPsychHtmlButtonResponse,
-  stimulus: PROLIFIC_PID
-    ? "<p>Thank you. Your answers are saved.</p><p>Click below to return to Prolific.</p>"
-    : "<p>Thank you. Your answers are saved.</p>",
+  stimulus: () => {
+    if (SAVE_STATUS === "debug") return "<p>Test run finished. Nothing was saved.</p>";
+    const saved = SAVE_STATUS === "saved"
+      ? "<p>Thank you. Your answers are saved.</p>"
+      : "<p>Thank you. Your answers could not be saved automatically.<br>Please send a message to the researcher through Prolific so you are still paid.</p>";
+    return saved + (PROLIFIC_PID ? "<p>Click below to return to Prolific.</p>" : "");
+  },
   choices: [PROLIFIC_PID ? "Return to Prolific" : "Finish"],
   data: { task: "end" },
 });

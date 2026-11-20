@@ -1,8 +1,12 @@
 # Human study: running it
 
-The study is a static web page in `docs/`. GitHub Pages hosts it, DataPipe
-saves each participant's data to your OSF project, and Prolific sends
-participants and pays them.
+The study is a static web page in `docs/`. GitHub Pages hosts it, a small
+Google Apps Script saves each participant's data to a private Google Drive
+folder, and Prolific sends participants and pays them.
+
+(An earlier version used DataPipe, which saves to OSF projects. OSF stopped
+allowing new projects on 16 November 2026, so the study now saves to Google
+Drive. OSF Registries still works for preregistration.)
 
 | File | What it is |
 | --- | --- |
@@ -12,7 +16,9 @@ participants and pays them.
 | `study/PREREGISTRATION.md` | preregistration draft |
 | `study/analyze.py` | preregistered analysis |
 | `study/power.md` | sample-size simulation |
+| `study/save_to_drive.gs` | Google Apps Script that stores each participant's CSV |
 | `study/test_design.js` | design checks (`node study/test_design.js`) |
+| `study/browser_test.py` | end-to-end run in headless Chrome (`--save-test` checks saving) |
 
 ## 1. Try it locally
 
@@ -34,13 +40,23 @@ Participants see this URL, so it shows your GitHub username. That does not
 affect anonymous peer review, but if you prefer, host `docs/` in a separate
 repository.
 
-## 3. Set up data saving (DataPipe + OSF, free)
+## 3. Set up data saving (Google Drive, free, about 5 minutes)
 
-1. Create an OSF project and a personal access token with `osf.full_write`.
-2. Sign in at <https://pipe.jspsych.org>, link the token, and create a new
-   experiment connected to the OSF project. Enable data collection.
-3. Copy the experiment ID into `CONFIG.DATAPIPE_EXPERIMENT_ID` in
+1. In Google Drive, create a folder such as "VCF study data". Open it and copy
+   the folder ID from the address bar (the part after `/folders/`).
+2. Go to <https://script.google.com>, click **New project**, replace the sample
+   code with the contents of `study/save_to_drive.gs` and paste the folder ID
+   into `FOLDER_ID`. Save.
+3. **Deploy → New deployment**, type **Web app**, *Execute as:* Me,
+   *Who has access:* Anyone. Deploy and approve the permissions.
+4. Copy the web-app URL (ends in `/exec`) into `CONFIG.SAVE_URL` in
    `docs/experiment.js`.
+5. Check it: opening the URL in a browser should show
+   `{"ok":true,"message":"VCF study endpoint is running"}`.
+
+"Anyone" lets anyone send data to the script; only you can read the folder.
+If saving fails, the participant is asked to message you on Prolific so they
+are still paid, and the data stay in their browser only.
 
 ## 4. Fill in the rest of `CONFIG`
 
@@ -70,12 +86,13 @@ otherwise):
 
 ## 6. Pilot, then register, then run
 
-1. Run the pilot. Check the timing, the saved CSVs and `python study/analyze.py`.
+1. Run the pilot. Check the timing, the CSVs in the Drive folder and `python study/analyze.py`.
    Pilot data are not analysed.
 2. Re-run the power simulation with the pilot's variability if it differs a
    lot from `study/power.md`.
-3. Register `study/PREREGISTRATION.md` on OSF or AsPredicted, with the commit hash.
-4. Run the main study. Download the CSVs from OSF and run
+3. Register `study/PREREGISTRATION.md` on OSF Registries or AsPredicted, with
+   the commit hash.
+4. Run the main study. Download the CSVs from the Drive folder and run
    `python study/analyze.py data/*.csv`.
 
 ## Regenerating stimuli

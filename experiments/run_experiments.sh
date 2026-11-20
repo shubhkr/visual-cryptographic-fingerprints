@@ -1,36 +1,30 @@
 #!/usr/bin/env bash
-# Reproduce all experimental results from the paper.
+# Reproduce every experiment in the paper (specification v2).
 # Usage: bash experiments/run_experiments.sh
-# Expected runtime: ~3 minutes on a modern laptop.
+# Runtime: several hours on a 2-core machine; the 2^20 searches dominate.
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
-
-echo "=== Visual Cryptographic Fingerprints — Experiment Reproduction ==="
-echo ""
-echo "Working directory: $REPO_DIR"
-echo "Start time: $(date)"
-echo ""
-
 cd "$REPO_DIR"
 
-echo "[1/2] Installing dependencies..."
+echo "=== Visual Cryptographic Fingerprints: experiment reproduction (spec v2) ==="
+echo "Start: $(date)"
+
 pip install -q -r requirements.txt
-echo "      Done."
-echo ""
 
-echo "[2/2] Running prototype (collision tests + example generation)..."
-PYTHONUNBUFFERED=1 python src/vcf_prototype.py
-echo ""
+run() { echo; echo "--- $* ---"; PYTHONUNBUFFERED=1 python experiments/run_v2.py "$@"; }
 
-echo "=== All experiments complete ==="
-echo "End time: $(date)"
-echo ""
-echo "Results written to:"
-echo "  - vcf_outputs/collision_results.json  (raw metrics)"
-echo "  - vcf_outputs/examples/               (sample fingerprints)"
-echo ""
-echo "To copy results into experiments/results/:"
-echo "  cp vcf_outputs/collision_results.json experiments/results/"
+run main
+run adaptive
+run scalectl
+run sweep
+run symmetry
+for v in randomwalk cellular voronoi cellular_nosym; do
+  run scale "$v"
+done
+
+echo
+echo "Results written to experiments/results/v2_*.json"
+echo "End: $(date)"

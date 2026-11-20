@@ -1,0 +1,82 @@
+{
+ "spec": "vcf-v2",
+ "protocol": {
+  "samples": 5000,
+  "pairs": 10000,
+  "targets": 20,
+  "M": 2000,
+  "size": 64,
+  "exact_test_samples": 100000
+ },
+ "randomwalk": {
+  "render_rate_batched": 17277.11693910892,
+  "exact_unique": 100000,
+  "render_rate_single": 612.0020010460478,
+  "ssim_mean": 0.18284516270154172,
+  "ssim_sd": 0.12483520042056157,
+  "ssim_max": 0.7127711869966201,
+  "ssim_p99": 0.5185589814673037,
+  "phash_mean": 31.3672,
+  "phash_sd": 4.066689582449095,
+  "phash_min": 14,
+  "phash_p1": 22.0,
+  "phash_cohen_d_vs_32": -0.15560568053460977,
+  "best_ssim_max": 0.6393857373461569,
+  "best_ssim_mean": 0.5191511569967858,
+  "best_phash_min": 12,
+  "best_phash_mean": 16.3
+ },
+ "cellular": {
+  "render_rate_batched": 9857.27493599346,
+  "exact_unique": 100000,
+  "render_rate_single": 1130.3602485911608,
+  "ssim_mean": 0.01819945816834224,
+  "ssim_sd": 0.03907247013129603,
+  "ssim_max": 0.1861420396308831,
+  "ssim_p99": 0.1128153237569446,
+  "phash_mean": 15.3577,
+  "phash_sd": 2.8385825177366253,
+  "phash_min": 6,
+  "phash_p1": 9.0,
+  "phash_cohen_d_vs_32": -5.862891036639625,
+  "best_ssim_max": 0.1786746852783431,
+  "best_ssim_mean": 0.15559793709936304,
+  "best_phash_min": 3,
+  "best_phash_mean": 5.7
+ },
+ "voronoi": {
+  "render_rate_batched": 1108.885806811634,
+  "exact_unique": 100000,
+  "render_rate_single": 2642.084588453025,
+  "ssim_mean": 0.2191302018186417,
+  "ssim_sd": 0.04437985432914807,
+  "ssim_max": 0.39042511267970553,
+  "ssim_p99": 0.33035514724297305,
+  "phash_mean": 31.4748,
+  "phash_sd": 4.174609557791004,
+  "phash_min": 18,
+  "phash_p1": 22.0,
+  "phash_cohen_d_vs_32": -0.12580817265169858,
+  "best_ssim_max": 0.39684398415296407,
+  "best_ssim_mean": 0.3558692199700703,
+  "best_phash_min": 14,
+  "best_phash_mean": 17.5
+ },
+ "golden_sha256_of_pixels": {
+  "randomwalk": {
+   "llama3-70b-v1": "f11cd2177de8d351de2e3ce1a27d4567b8629d63d99a2073c7ac385d5c347e10",
+   "gpt2-base": "21c2622eda005b9f6ae691f405d43d8ee18d8ea76cf0d5704c41eac8cb84ea04",
+   "mistral-7b-instruct": "09e32a5d346fd501063485f0b701a226da8b287841a142cead44646e000d4f71"
+  },
+  "cellular": {
+   "llama3-70b-v1": "85f422df3f32c5f439f4364f16c2214e52fed314f1325d38653bab6492ad315b",
+   "gpt2-base": "0618fbc44993e107a34517698af774ee72d35a28e0b8a505be76da992df531c6",
+   "mistral-7b-instruct": "0e5279836e06ea06c69fd65daf78b0d570026c0de4de3ad7790f9565ea82d48e"
+  },
+  "voronoi": {
+   "llama3-70b-v1": "e3e86943fca97ed72f3f8e46ffd84b8ea2029be79362e7cb70b0c4effa3473e0",
+   "gpt2-base": "91eb30b6799abb42753edf89e78cfe1757389e5131dd94dbe89a4630a43ca42b",
+   "mistral-7b-instruct": "16f81e823b1b802fac497cb5fb5bda009d126fa37bf7898fdf027f7c566d0923"
+  }
+ }
+}

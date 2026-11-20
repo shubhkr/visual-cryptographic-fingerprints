@@ -1,0 +1,368 @@
+{
+ "pairs": 10000,
+ "samples": 5000,
+ "best_of_M": 2048,
+ "targets": 20,
+ "rows": [
+  {
+   "encoding": "randomwalk",
+   "params": {
+    "w": 17,
+    "h": 9,
+    "n_moves": 128
+   },
+   "ssim_mean": 0.1830238152627778,
+   "ssim_sd": 0.12330262012704414,
+   "ssim_max": 0.7044192183383006,
+   "ssim_p99": 0.5084709748478171,
+   "phash_mean": 31.3842,
+   "phash_sd": 4.028844792245043,
+   "phash_min": 12,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.1528477843537999,
+   "best_ssim_max": 0.6949528785288865,
+   "best_phash_min": 14,
+   "best_phash_mean": 17.0
+  },
+  {
+   "encoding": "randomwalk",
+   "params": {
+    "w": 17,
+    "h": 9,
+    "n_moves": 512
+   },
+   "ssim_mean": 0.0398019000352162,
+   "ssim_sd": 0.09329081959734532,
+   "ssim_max": 0.4470747795769396,
+   "ssim_p99": 0.267925238625743,
+   "phash_mean": 31.4546,
+   "phash_sd": 4.0062624527107555,
+   "phash_min": 16,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.13613686233436031,
+   "best_ssim_max": 0.44095856704702024,
+   "best_phash_min": 14,
+   "best_phash_mean": 17.6
+  },
+  {
+   "encoding": "randomwalk",
+   "params": {
+    "w": 33,
+    "h": 17,
+    "n_moves": 512
+   },
+   "ssim_mean": 0.177130724394425,
+   "ssim_sd": 0.111637613517108,
+   "ssim_max": 0.655744277271339,
+   "ssim_p99": 0.48342885281061937,
+   "phash_mean": 31.352,
+   "phash_sd": 4.028708974348979,
+   "phash_min": 14,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.16084557214875853,
+   "best_ssim_max": 0.6472084680524209,
+   "best_phash_min": 12,
+   "best_phash_mean": 16.0
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 16,
+    "steps": 0
+   },
+   "ssim_mean": 0.01714528966748083,
+   "ssim_sd": 0.07737731027783591,
+   "ssim_max": 0.3275546226172556,
+   "ssim_p99": 0.20412339154621645,
+   "phash_mean": 15.477,
+   "phash_sd": 2.7858698821014594,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.931002056541219,
+   "best_ssim_max": 0.32609472754763674,
+   "best_phash_min": 3,
+   "best_phash_mean": 6.2
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 16,
+    "steps": 4
+   },
+   "ssim_mean": 0.01985636310002485,
+   "ssim_sd": 0.0638011698820937,
+   "ssim_max": 0.28425373337177523,
+   "ssim_p99": 0.17029790309858453,
+   "phash_mean": 15.4229,
+   "phash_sd": 2.800438463883826,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.919465902853593,
+   "best_ssim_max": 0.35497623573085746,
+   "best_phash_min": 3,
+   "best_phash_mean": 5.85
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 16,
+    "steps": 8
+   },
+   "ssim_mean": 0.02949621538911722,
+   "ssim_sd": 0.05868606244268896,
+   "ssim_max": 0.2835633124520715,
+   "ssim_p99": 0.1725977395048671,
+   "phash_mean": 15.3892,
+   "phash_sd": 2.8491969675682305,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.829993569794228,
+   "best_ssim_max": 0.29314436344303896,
+   "best_phash_min": 3,
+   "best_phash_mean": 5.45
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 16,
+    "steps": 16
+   },
+   "ssim_mean": 0.044211791682812834,
+   "ssim_sd": 0.05814585557603578,
+   "ssim_max": 0.29687817972536507,
+   "ssim_p99": 0.1918582466703602,
+   "phash_mean": 15.3492,
+   "phash_sd": 2.875736316145832,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.790099706469618,
+   "best_ssim_max": 0.31604663946684614,
+   "best_phash_min": 3,
+   "best_phash_mean": 5.95
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 32,
+    "steps": 0
+   },
+   "ssim_mean": 0.002446717306510747,
+   "ssim_sd": 0.044674935219143556,
+   "ssim_max": 0.15638867406946227,
+   "ssim_p99": 0.10581254688480865,
+   "phash_mean": 15.5445,
+   "phash_sd": 2.814679333423259,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.8463142868877185,
+   "best_ssim_max": 0.18613880895342544,
+   "best_phash_min": 4,
+   "best_phash_mean": 6.1
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 32,
+    "steps": 4
+   },
+   "ssim_mean": 0.010801803059800478,
+   "ssim_sd": 0.038989133196448256,
+   "ssim_max": 0.1597229191791903,
+   "ssim_p99": 0.10115010765506682,
+   "phash_mean": 15.3806,
+   "phash_sd": 2.8219751310031067,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.889279397757281,
+   "best_ssim_max": 0.18785380862191067,
+   "best_phash_min": 4,
+   "best_phash_mean": 6.2
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 32,
+    "steps": 8
+   },
+   "ssim_mean": 0.017584273444932085,
+   "ssim_sd": 0.038656720939170504,
+   "ssim_max": 0.1754685324486752,
+   "ssim_p99": 0.1103353707398149,
+   "phash_mean": 15.3814,
+   "phash_sd": 2.826045654266753,
+   "phash_min": 2,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.880513633921413,
+   "best_ssim_max": 0.20744420504577563,
+   "best_phash_min": 4,
+   "best_phash_mean": 5.95
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 32,
+    "steps": 16
+   },
+   "ssim_mean": 0.02894226621146533,
+   "ssim_sd": 0.040506534276594564,
+   "ssim_max": 0.20753849306114663,
+   "ssim_p99": 0.12752005845811798,
+   "phash_mean": 15.2729,
+   "phash_sd": 2.8148580052997345,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.942431187827838,
+   "best_ssim_max": 0.20747491806594093,
+   "best_phash_min": 4,
+   "best_phash_mean": 5.7
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 64,
+    "steps": 0
+   },
+   "ssim_mean": 0.0017813623959252436,
+   "ssim_sd": 0.023247199125034267,
+   "ssim_max": 0.1017348128912152,
+   "ssim_p99": 0.05693479754503907,
+   "phash_mean": 15.5327,
+   "phash_sd": 2.772098611160865,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.940373092681587,
+   "best_ssim_max": 0.09279012810288793,
+   "best_phash_min": 5,
+   "best_phash_mean": 6.5
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 64,
+    "steps": 4
+   },
+   "ssim_mean": 0.008605886320972804,
+   "ssim_sd": 0.022739141851636408,
+   "ssim_max": 0.10696556318667845,
+   "ssim_p99": 0.06318102750068516,
+   "phash_mean": 15.454,
+   "phash_sd": 2.7778560077873005,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.956392251295886,
+   "best_ssim_max": 0.10341408525618445,
+   "best_phash_min": 3,
+   "best_phash_mean": 6.15
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 64,
+    "steps": 8
+   },
+   "ssim_mean": 0.013585678009576765,
+   "ssim_sd": 0.026094816405079733,
+   "ssim_max": 0.11017206077902986,
+   "ssim_p99": 0.07272634830691987,
+   "phash_mean": 15.3454,
+   "phash_sd": 2.833778191743313,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.877171349728771,
+   "best_ssim_max": 0.1193951027608595,
+   "best_phash_min": 5,
+   "best_phash_mean": 6.1
+  },
+  {
+   "encoding": "cellular",
+   "params": {
+    "n": 64,
+    "steps": 16
+   },
+   "ssim_mean": 0.020222475574618898,
+   "ssim_sd": 0.03095735845632628,
+   "ssim_max": 0.14602243872655454,
+   "ssim_p99": 0.09461097336398908,
+   "phash_mean": 15.3162,
+   "phash_sd": 2.764998654610884,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -6.0339269866111005,
+   "best_ssim_max": 0.15776077039888742,
+   "best_phash_min": 4,
+   "best_phash_mean": 6.3
+  },
+  {
+   "encoding": "voronoi",
+   "params": {
+    "k": 8
+   },
+   "ssim_mean": 0.36707804021793927,
+   "ssim_sd": 0.06254433980969572,
+   "ssim_max": 0.6463862789024515,
+   "ssim_p99": 0.518582957774545,
+   "phash_mean": 31.5052,
+   "phash_sd": 4.221086703681885,
+   "phash_min": 16,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.1172209989357497,
+   "best_ssim_max": 0.7061304330864547,
+   "best_phash_min": 10,
+   "best_phash_mean": 16.9
+  },
+  {
+   "encoding": "voronoi",
+   "params": {
+    "k": 16
+   },
+   "ssim_mean": 0.21989266431026117,
+   "ssim_sd": 0.04525897708965835,
+   "ssim_max": 0.41190557639875747,
+   "ssim_p99": 0.333922789417752,
+   "phash_mean": 31.4254,
+   "phash_sd": 4.127642770395714,
+   "phash_min": 16,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.13920778322221758,
+   "best_ssim_max": 0.44691265225852195,
+   "best_phash_min": 14,
+   "best_phash_mean": 17.4
+  },
+  {
+   "encoding": "voronoi",
+   "params": {
+    "k": 32
+   },
+   "ssim_mean": 0.10254297642858473,
+   "ssim_sd": 0.03523878921286827,
+   "ssim_max": 0.2456025970052143,
+   "ssim_p99": 0.18879037081589678,
+   "phash_mean": 31.497,
+   "phash_sd": 4.035268392560773,
+   "phash_min": 18,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.12465094042500538,
+   "best_ssim_max": 0.27050891371781244,
+   "best_phash_min": 14,
+   "best_phash_mean": 17.7
+  },
+  {
+   "encoding": "voronoi",
+   "params": {
+    "k": 64
+   },
+   "ssim_mean": 0.0409060626532681,
+   "ssim_sd": 0.033500927237873096,
+   "ssim_max": 0.17700208952136204,
+   "ssim_p99": 0.12130965431459402,
+   "phash_mean": 31.4542,
+   "phash_sd": 4.026226814276613,
+   "phash_min": 18,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.1355611656215307,
+   "best_ssim_max": 0.1847986368652216,
+   "best_phash_min": 16,
+   "best_phash_mean": 17.9
+  }
+ ]
+}

@@ -1,0 +1,254 @@
+{
+ "randomwalk": {
+  "native_64": {
+   "ssim_mean": 0.18220337225608702,
+   "ssim_sd": 0.12330072368243312,
+   "ssim_max": 0.7120822938507466,
+   "ssim_p99": 0.5077734307225276,
+   "phash_mean": 31.4114,
+   "phash_sd": 4.038161715434388,
+   "phash_min": 12,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.14575939288173936
+  },
+  "render_32": {
+   "ssim_mean": 0.10124755137613352,
+   "ssim_sd": 0.11975074393214799,
+   "ssim_max": 0.7053567091931394,
+   "ssim_p99": 0.4524499969109502,
+   "phash_mean": 31.3936,
+   "phash_sd": 4.0745403470821095,
+   "phash_min": 14,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.14882660333312453
+  },
+  "render_128": {
+   "ssim_mean": 0.287463354329496,
+   "ssim_sd": 0.11303065841405256,
+   "ssim_max": 0.7399427821521583,
+   "ssim_p99": 0.572454068427478,
+   "phash_mean": 31.3998,
+   "phash_sd": 4.020467629517741,
+   "phash_min": 14,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.14928611676746556
+  },
+  "common_16_to_64": {
+   "ssim_mean": 0.17717910233538028,
+   "ssim_sd": 0.11554813859826492,
+   "ssim_max": 0.7111255076415708,
+   "ssim_p99": 0.48955744350195896,
+   "phash_mean": 31.402,
+   "phash_sd": 4.054527839342085,
+   "phash_min": 14,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.14748943001388654
+  },
+  "common_8_to_64": {
+   "ssim_mean": 0.21182203070382047,
+   "ssim_sd": 0.12950788685792683,
+   "ssim_max": 0.7706640424782993,
+   "ssim_p99": 0.5574676895566671,
+   "phash_mean": 31.4104,
+   "phash_sd": 4.059405355467719,
+   "phash_min": 14,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.14524294776471464
+  },
+  "ms_ssim_3scale": {
+   "mean": 0.0066718265044907665,
+   "max": 0.3474944538806696
+  }
+ },
+ "cellular": {
+  "native_64": {
+   "ssim_mean": 0.0180830365511143,
+   "ssim_sd": 0.038710938446544094,
+   "ssim_max": 0.15957320977504152,
+   "ssim_p99": 0.11197761706800678,
+   "phash_mean": 15.3018,
+   "phash_sd": 2.8174308793651,
+   "phash_min": 6,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.926746995746313
+  },
+  "render_32": {
+   "ssim_mean": 0.01595409933275569,
+   "ssim_sd": 0.054937663810849344,
+   "ssim_max": 0.2163462685668677,
+   "ssim_p99": 0.1462275127939176,
+   "phash_mean": 15.305,
+   "phash_sd": 2.821165539276276,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.917766883074444
+  },
+  "render_128": {
+   "ssim_mean": 0.02798981256890358,
+   "ssim_sd": 0.02914116185017283,
+   "ssim_max": 0.14305217324530883,
+   "ssim_p99": 0.09696071377937819,
+   "phash_mean": 15.3038,
+   "phash_sd": 2.8172159235670953,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.9264892904835085
+  },
+  "common_16_to_64": {
+   "ssim_mean": 0.05349525394864277,
+   "ssim_sd": 0.06995603309296558,
+   "ssim_max": 0.33800709239397114,
+   "ssim_p99": 0.22171382963559277,
+   "phash_mean": 15.2796,
+   "phash_sd": 2.823902236268104,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.921026509082217
+  },
+  "common_8_to_64": {
+   "ssim_mean": 0.24024506047408276,
+   "ssim_sd": 0.10704517003970382,
+   "ssim_max": 0.6247136991424007,
+   "ssim_p99": 0.4907327387310133,
+   "phash_mean": 15.3705,
+   "phash_sd": 2.7861137360129433,
+   "phash_min": 5,
+   "phash_p1": 9.0,
+   "phash_cohen_d_vs_32": -5.968708235076425
+  },
+  "ms_ssim_3scale": {
+   "mean": 0.00028444956739271857,
+   "max": 0.0170871892612996
+  }
+ },
+ "voronoi": {
+  "native_64": {
+   "ssim_mean": 0.2189287251426822,
+   "ssim_sd": 0.04472922245245388,
+   "ssim_max": 0.4430293252807423,
+   "ssim_p99": 0.33020493054005545,
+   "phash_mean": 31.5004,
+   "phash_sd": 4.176601470095034,
+   "phash_min": 14,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.11961878660848939
+  },
+  "render_32": {
+   "ssim_mean": 0.04780724470376189,
+   "ssim_sd": 0.07007685329907701,
+   "ssim_max": 0.3799196477688832,
+   "ssim_p99": 0.21721825121561864,
+   "phash_mean": 31.449,
+   "phash_sd": 4.188937693497004,
+   "phash_min": 16,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.13153692900598224
+  },
+  "render_128": {
+   "ssim_mean": 0.4455128175967702,
+   "ssim_sd": 0.040437304361903736,
+   "ssim_max": 0.6039269413510406,
+   "ssim_p99": 0.5422391054619369,
+   "phash_mean": 31.496,
+   "phash_sd": 4.177605055531219,
+   "phash_min": 14,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.12064328563866918
+  },
+  "common_16_to_64": {
+   "ssim_mean": 0.2008028283718028,
+   "ssim_sd": 0.06325114531168174,
+   "ssim_max": 0.5310209687415779,
+   "ssim_p99": 0.354808232871893,
+   "phash_mean": 31.4944,
+   "phash_sd": 4.182005337155847,
+   "phash_min": 16,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.12089893705010338
+  },
+  "common_8_to_64": {
+   "ssim_mean": 0.23019761682060474,
+   "ssim_sd": 0.08453793346024958,
+   "ssim_max": 0.616565463273213,
+   "ssim_p99": 0.42744565427088055,
+   "phash_mean": 31.4894,
+   "phash_sd": 4.133822400636002,
+   "phash_min": 16,
+   "phash_p1": 22.0,
+   "phash_cohen_d_vs_32": -0.12351764311922125
+  },
+  "ms_ssim_3scale": {
+   "mean": 0.0026508605770947688,
+   "max": 0.11197905172843939
+  }
+ },
+ "rankings": {
+  "native_64": {
+   "ssim_best_to_worst": [
+    "cellular",
+    "randomwalk",
+    "voronoi"
+   ],
+   "phash_best_to_worst": [
+    "voronoi",
+    "randomwalk",
+    "cellular"
+   ]
+  },
+  "render_32": {
+   "ssim_best_to_worst": [
+    "cellular",
+    "voronoi",
+    "randomwalk"
+   ],
+   "phash_best_to_worst": [
+    "voronoi",
+    "randomwalk",
+    "cellular"
+   ]
+  },
+  "render_128": {
+   "ssim_best_to_worst": [
+    "cellular",
+    "randomwalk",
+    "voronoi"
+   ],
+   "phash_best_to_worst": [
+    "voronoi",
+    "randomwalk",
+    "cellular"
+   ]
+  },
+  "common_16_to_64": {
+   "ssim_best_to_worst": [
+    "cellular",
+    "randomwalk",
+    "voronoi"
+   ],
+   "phash_best_to_worst": [
+    "voronoi",
+    "randomwalk",
+    "cellular"
+   ]
+  },
+  "common_8_to_64": {
+   "ssim_best_to_worst": [
+    "randomwalk",
+    "voronoi",
+    "cellular"
+   ],
+   "phash_best_to_worst": [
+    "voronoi",
+    "randomwalk",
+    "cellular"
+   ]
+  },
+  "ms_ssim_3scale": {
+   "best_to_worst": [
+    "cellular",
+    "voronoi",
+    "randomwalk"
+   ]
+  }
+ }
+}

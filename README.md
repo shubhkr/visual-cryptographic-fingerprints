@@ -3,173 +3,168 @@
 Reference implementation and experimental artifacts for a study of visual hash
 encodings as a human-facing identity layer for AI supply-chain provenance.
 
-> **Status:** the accompanying paper is under peer review. Paper source and PDF
-> will be published here after notification.
+> **Status:** the paper is being revised after review. Paper source will be
+> published here after the next notification.
 
 ## Overview
 
 Visual Cryptographic Fingerprints (VCFs) are deterministic images derived from
-cryptographic digests of signed AI artifact bundles. They are intended as a
-human-recognizable identity layer atop machine-verifiable provenance
-infrastructure (Sigstore, SLSA, in-toto, AIBOMs), reducing human error at
-deployment gates, model card review, and incident triage.
+cryptographic digests of signed AI artifact bundles. They are meant as a
+human-recognisable identity layer on top of machine-verifiable provenance
+(Sigstore, SLSA, in-toto, AIBOMs), for deployment gates, model-card review and
+incident triage.
 
 This repository contains:
 
-- A **reference prototype** implementing three visual hash encoding families from SHA-256 digests
-- An **automated collision and near-collision measurement** framework
-- **Raw experimental results**
-- **Example visual fingerprints** for sample AI model identifiers
+- **`src/vcf_v2.py`**, three encoding families (specification v2), with every bit
+  of encoding state derived from the digest or from SHAKE-256
+- **`src/metrics.py`**, batched SSIM and pHash, numerically identical to
+  scikit-image and ImageHash
+- **`experiments/run_v2.py`**, every experiment in the paper, seeded
+- **`experiments/results/v2_*.json`**, raw results
+- the reviewed-version code and results (`src/vcf_prototype.py`,
+  `src/ca_shake.py`, `experiments/results/collision_results.json`,
+  `experiments/results/ca_shake_replication.json`), kept for provenance
 
-## Headline result: the two standard similarity metrics disagree
+## Headline result
 
-This is a **negative result**, and it is the main finding.
+At default settings, SSIM and perceptual hashing (pHash) rank the three
+encoding families in **opposite orders**. Controls show that **neither ranking
+is a property of the encoding family**:
 
-Measured against the two automated similarity metrics that dominate the visual
-fingerprint literature — SSIM and perceptual hashing (pHash) — the three encoding
-families rank in **opposite orders**:
+- **pHash responds to mirror symmetry.** The cellular encoding mirrors its board
+  left-to-right, following LifeHash. A mirrored image has zero odd-frequency DCT
+  coefficients, so 32 of pHash's 64 bits are the same for almost every image and
+  random pairs differ in about 16 bits instead of 32.
+- **SSIM responds to feature scale.** Its ranking changes with rendering
+  resolution, and at a common 8×8 effective resolution it reverses for the
+  cellular encoding.
 
-| Metric | Ranking (best → worst separation) |
-| ------ | --------------------------------- |
-| SSIM   | Cellular → Random-walk → Voronoi  |
-| pHash  | Voronoi → Random-walk → **Cellular (fails)** |
+The reviewed version of the paper explained the disagreement by Game-of-Life
+boards decaying to "sparse debris". **That explanation is wrong.** A board that
+is never evolved (`steps=0`) clusters in pHash exactly as much as an evolved one.
+
+| Configuration (10,000 random pairs)  | SSIM mean | pHash mean | pHash bits fixed in >95% of images |
+| ------------------------------------ | --------- | ---------- | ---------------------------------- |
+| Cellular, mirrored (default)         | 0.018     | 15.4       | 33 |
+| Cellular, mirrored, `steps=0`        | 0.002     | 15.5       | – |
+| Cellular, **no mirror**              | 0.014     | **31.5**   | 1 |
+| Random-walk (default)                | 0.18      | 31.4       | – |
+| Random-walk, **mirrored**            | 0.19      | **15.3**   | 33 |
+| Voronoi (default)                    | 0.22      | 31.5       | – |
+| Voronoi, **mirrored**                | 0.22      | **15.5**   | 33 |
+
+An ideal encoding has pHash mean 32 (one fixed bit, the DC term).
+
+### Main table (spec v2, original protocol)
 
 | Metric                          | Random-walk | Cellular    | Voronoi     |
 | ------------------------------- | ----------- | ----------- | ----------- |
 | Exact collisions (N=100K)       | 0           | 0           | 0           |
-| Render rate                     | 14,769/s    | 3,446/s     | 3,337/s     |
-| Random-pair SSIM (mean / max)   | 0.18 / 0.68 | 0.02 / 0.16 | 0.22 / 0.48 |
-| Random-pair pHash (mean / min)  | 31.4 / 12   | **15.3 / 5**| 31.5 / 18   |
-| Best-of-M SSIM (M=2,000)        | 0.72        | 0.19        | 0.45        |
-| Best-of-M pHash (M=2,000)       | 12          | **4**       | 16          |
+| Random-pair SSIM (mean / max)   | 0.18 / 0.71 | 0.02 / 0.19 | 0.22 / 0.39 |
+| Random-pair pHash (mean / min)  | 31.4 / 14   | **15.4 / 6**| 31.5 / 18   |
+| Best-of-2,000 SSIM              | 0.64        | 0.18        | 0.40        |
+| Best-of-2,000 pHash             | 12          | **3**       | 14          |
 
-**Reading the pHash row is essential.** For a 64-bit perceptual hash, two
-*ideally uncorrelated* outputs sit at expected Hamming distance 32. Random-walk
-(31.4) and Voronoi (31.5) are statistically indistinguishable from that ideal.
-Cellular automata average **15.3** — less than half the expected radius — meaning
-the whole family occupies a compact subregion of perceptual-hash space. Its
-closest random pair sits at distance 5, and a 2,000-candidate search reaches **4**,
-inside the conventional "perceptually similar" threshold. Neither other encoding
-comes within a factor of three of that threshold at the same budget.
+### Larger searches (best pHash over 20 targets, min / mean)
 
-**Why the metrics diverge.** A Game-of-Life board seeded densely and evolved 8
-steps collapses toward sparse debris, so the rendered heat maps are low-variance
-images of scattered bright cells on a mostly dark field. SSIM compares local
-means, variances, and covariance in a sliding window; on two such images the
-windows are near-constant and the sparse features rarely overlap, so SSIM returns
-approximately zero. But SSIM ≈ 0 means "linearly uncorrelated," which is also what
-you get comparing two different images of almost nothing. pHash thresholds a
-low-frequency DCT, discarding exactly the fine detail SSIM keys on and retaining
-the coarse structure a human sees at a glance — and it reports that all cellular
-outputs look alike, because they do.
+| Encoding           | 2^11      | 2^16      | 2^20       | predicted 2^28 (median) |
+| ------------------ | --------- | --------- | ---------- | ----------------------- |
+| Random-walk        | 8 / 16.2  | 6 / 11.7  | 4 / 9.8    | 2                       |
+| Cellular (mirrored) | 4 / 5.8   | 2 / 3.8   | 1 / 2.5    | 0                       |
+| Cellular (no mirror) | 14 / 18.2 | 12 / 14.8 | 12 / 12.5  | 10                      |
+| Voronoi            | 14 / 17.2 | 12 / 14.1 | 10 / 11.6  | 8                       |
+| Ideal 64-bit hash  | –         | –         | 13 (median)| 10                      |
 
-**Conclusion: none of the three families is deployment-ready**, and single-metric
-validation of visual fingerprint schemes is unsound.
+Hill-climbing over a malleable 16-byte pad gives **no advantage** over random
+sampling (mean best 5.35 vs 5.25 bits at 2^13 evaluations), because each edit
+produces an unrelated SHA-256 digest.
 
-## Repository Structure
+**Conclusion:** none of the three families is deployment-ready, and
+single-metric validation of visual fingerprints is unsound. The unmirrored
+cellular encoding scores like an ideal hash under both metrics while being close
+to random texture, which people are likely worst at telling apart. Only a
+human-subject study can settle which encodings work.
+
+## Repository structure
 
 ```
 visual-cryptographic-fingerprints/
-├── README.md
-├── LICENSE
-├── requirements.txt
 ├── src/
-│   └── vcf_prototype.py           # Three encoding implementations + measurement framework
+│   ├── vcf_v2.py             # encodings, spec v2 (use this)
+│   ├── metrics.py            # batched SSIM / pHash
+│   ├── vcf_prototype.py      # reviewed version (v1), kept for provenance
+│   └── ca_shake.py           # reviewed-version SHAKE-256 CA replication
 ├── experiments/
-│   ├── run_experiments.sh         # One-command reproduction of all results
+│   ├── run_v2.py             # all revision experiments
+│   ├── fill_paper.py         # fills paper numbers from results/*.json
+│   ├── run_experiments.sh    # reproduces everything
 │   └── results/
-│       └── collision_results.json # Raw experimental data
-└── examples/
-    ├── *.png                      # Generated visual fingerprints
-    └── *.txt                      # ASCII randomart outputs
+│       ├── v2_main.json            # main table + golden vectors
+│       ├── v2_scale_*.json         # best-of-2^20 searches + tail distributions
+│       ├── v2_adaptive.json        # hill-climbing vs random
+│       ├── v2_scalectl.json        # feature-scale control
+│       ├── v2_sweep.json           # parameter sweep
+│       ├── v2_symmetry.json        # mirror-symmetry controls
+│       ├── collision_results.json  # reviewed version (v1)
+│       └── ca_shake_replication.json
+└── examples/                 # sample fingerprints (v1 renderer)
 ```
 
-## Quick Start
+## Quick start
 
 ```bash
-git clone *repo_link*
-cd visual-cryptographic-fingerprints
 pip install -r requirements.txt
-python src/vcf_prototype.py
+python -c "import sys; sys.path.insert(0,'src'); import vcf_v2; print(vcf_v2.golden_vectors())"
 ```
 
-## Encoding Families
+## Encoding specification (v2)
 
-### A. Random-Walk Grid (Drunken Bishop)
+All three encodings render to 64×64 greyscale by nearest-neighbour upscaling.
 
-Terminal-friendly ASCII art. Implements the OpenSSH randomart algorithm adapted
-for SHA-256 (17×9 grid, 128 diagonal moves). `S` marks the start cell, `E` the
-end cell.
+**A. Random-walk grid (drunken bishop).** OpenSSH randomart adapted to SHA-256:
+17×9 grid, 128 diagonal moves from the digest's 2-bit pairs, least significant
+pair first. Longer walks take further moves from SHAKE-256.
 
-```
-  llama3-70b-v1         llama3-70b-v1
-    (original)            (tampered)
-+----[SHA256]-----+  +----[SHA256]-----+
-|+=+=. .          |  |.o***.o.         |
-|B*=oo*..         |  | o+=.=o. .       |
-|.**=*oo o . .    |  |.+..+o o+ .      |
-|.E.o+o o . . .   |  |..o o+.o.E       |
-|. . . . S   .    |  |  o.o o S .      |
-|   o.  = . .     |  | + . + . . +     |
-|  ....+   .      |  |  = . = o = .    |
-|...  ..o .       |  | . . + o o .     |
-|=.     .o        |  |  ..o...o        |
-+-----------------+  +-----------------+
-```
+**B. Cellular automata (LifeHash-like).** The n×n board is the first n² bits of
+SHAKE-256(digest). By default the left half is mirrored onto the right half
+(`symmetric=True`); the board evolves for T Game-of-Life steps on a torus and
+the summed activity is rendered. Defaults n=32, T=8.
 
-### B. Cellular Automata (LifeHash-like)
+**C. Voronoi tessellation.** SHAKE-256 expands the digest to 3K bytes: bytes
+[0, 2K) give the K site coordinates (one byte each for x and y), bytes [2K, 3K)
+give the cell intensities in [30, 230]. Defaults K=16.
 
-GUI-friendly grayscale images. A 32×32 Game-of-Life grid seeded from digest bits,
-evolved 8 steps with horizontal symmetry.
+**Changes from the reviewed version.** v1 seeded 768 of the 1,024 cellular
+cells from NumPy's Mersenne Twister keyed on four digest bytes, and v1 Voronoi
+used all 32 digest bytes for coordinates and then reused some of them for
+intensities. Random-walk output is unchanged. `golden_vectors()` gives the
+SHA-256 of the rendered pixels for three fixed inputs per encoding; the
+cellular vectors match `ca_shake_replication.json`.
 
-> **Known defect.** The prototype seeds 768 of its 1,024 cells from NumPy's
-> pseudorandom generator keyed on the first four digest bytes, rather than from
-> the digest directly. This is adequate for the measurements reported here, but
-> it means the encoding is **not reimplementable across languages** and is not
-> byte-level deterministic. A specification must derive the full board from an
-> extendable-output function such as SHAKE-256.
-
-### C. Voronoi Tessellation
-
-Dashboard-friendly region maps. 16 site points derived from the digest, Voronoi
-cells with deterministic intensity mapping.
-
-## Reproducing Results
+## Reproducing results
 
 ```bash
-bash experiments/run_experiments.sh    # full reproduction, ~3 minutes
+bash experiments/run_experiments.sh        # everything, several hours on 2 cores
+python experiments/run_v2.py main          # main table, ~10 minutes
+python experiments/run_v2.py scale cellular   # one 2^20 search, 10-40 minutes
 ```
 
-The measurement suite runs:
+All sampling is seeded. Every number in the paper is filled from the JSON files
+by `experiments/fill_paper.py`.
 
-1. **Exact collision test:** 100,000 random SHA-256 digests per encoding
-2. **Near-collision analysis:** 10,000 random pairs (from 5,000 samples) with SSIM and pHash
-3. **Best-of-M search:** 20 targets × 2,000 candidates per encoding
+### Caveats
 
-See `experiments/results/collision_results.json` for the full data.
-
-### Caveats on the measurements
-
-- **The best-of-M search is non-adaptive.** Candidates are drawn independently and
-  uniformly, so it estimates the upper tail of the random-pair distribution, not
-  the reach of an optimizing adversary. A real attacker with a malleable preimage
-  can hill-climb and will do better at equal budget. Treat these numbers as loose
-  **lower bounds** on attacker capability.
-- **M = 2,000 is far below realistic attacker budgets** (2²⁰–2²⁸).
-- **Feature scale is a confound.** The encodings render at 17×9, 32×32, and 64×64
-  natively before nearest-neighbour upscaling to 64×64, giving effective feature
-  sizes of ~4×7, 2×2, and 1×1 pixels. SSIM uses a fixed window, so part of the
-  measured difference between encodings reflects spatial frequency rather than
-  collision resistance.
-- **No textual baseline** (hex, Base32, sentence encodings) was measured, so the
-  values lack an external reference point.
-- **No human-subject data.** The metric disagreement documented above is precisely
-  an argument that automated proxies cannot substitute for it.
+- **No human-subject data.** The results above are an argument that automated
+  proxies cannot substitute for it.
+- **Predicted values** for 2^24 and 2^28 extrapolate a pooled distance
+  distribution measured over 2^28 target–candidate pairs; individual targets vary.
+- **pHash is a proxy** with known adversarial weaknesses, not ground truth.
+- **No textual baseline** (hex, Base32, sentence encodings) is measured.
 
 ## Dependencies
 
-Python 3.10+, NumPy, SciPy, Pillow, scikit-image, ImageHash, Matplotlib.
-See `requirements.txt` for pinned versions.
+Python 3.10+, NumPy, SciPy, Pillow, scikit-image, ImageHash.
 
 ## License
 

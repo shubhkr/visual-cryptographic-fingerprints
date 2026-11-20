@@ -8,7 +8,7 @@ const CONFIG = {
   // ACTION: completion code from your Prolific study
   PROLIFIC_COMPLETION_CODE: "REPLACE_WITH_PROLIFIC_CODE",
   // ACTION: researcher contact shown on the consent page
-  CONTACT: "REPLACE_WITH_CONTACT_EMAIL",
+  CONTACT: "shubhambtps@live.in",
   DISPLAY_PX: 192,
   MIN_WINDOW_WIDTH: 900,
 };

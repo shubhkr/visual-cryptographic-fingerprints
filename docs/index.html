@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Comparing release fingerprints</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="lib/jspsych.js"></script>
+  <script src="lib/plugin-preload.js"></script>
+  <script src="lib/plugin-html-keyboard-response.js"></script>
+  <script src="lib/plugin-html-button-response.js"></script>
+  <script src="lib/plugin-instructions.js"></script>
+  <script src="lib/plugin-survey-text.js"></script>
+  <script src="lib/plugin-pipe.js"></script>
+  <link rel="stylesheet" href="lib/jspsych.css">
+  <style>
+    body { background: #f4f4f4; }
+    .pair { display: flex; gap: 72px; justify-content: center; align-items: flex-start; margin: 8px 0 20px; }
+    .side { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .label { font-size: 15px; color: #444; }
+    img.fp { image-rendering: pixelated; image-rendering: crisp-edges; border: 1px solid #bbb; background: #000; }
+    .hex { font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace; font-size: 20px; line-height: 1.6;
+           background: #fff; border: 1px solid #bbb; padding: 14px 18px; white-space: nowrap; }
+    .keys { font-size: 16px; color: #333; }
+    .ok { color: #1a7f37; font-size: 20px; }
+    .bad { color: #b42318; font-size: 20px; }
+    .attn { font-size: 22px; }
+    .consent { max-width: 640px; text-align: left; margin: auto; }
+  </style>
+</head>
+<body>
+  <script src="stimuli.js"></script>
+  <script src="design.js"></script>
+  <script src="experiment.js"></script>
+</body>
+</html>

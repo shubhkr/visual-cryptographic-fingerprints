@@ -1,0 +1,1065 @@
+{
+ "kind": "image",
+ "encoding": "cellular",
+ "params": {
+  "symmetric": false
+ },
+ "items": [
+  {
+   "target": "e83533e11ad03bd760258f322c85c946255257ed8e026ab588da8ac4e74c43e7",
+   "target_img": "stimuli/life_unmirrored/e83533e11ad03bd76025.png",
+   "random": {
+    "digest": "060811e4107f63738489f75115b3ec0ffb8f4a617eec6a6331d48240f0871d09",
+    "phash": 34,
+    "ssim": 0.058,
+    "img": "stimuli/life_unmirrored/060811e4107f63738489.png"
+   },
+   "phash_hard": {
+    "digest": "90c8fffbe594b48d5673f5cf02761da7a4718804271e0f235c905a452b8e5470",
+    "phash": 14,
+    "ssim": 0.047,
+    "img": "stimuli/life_unmirrored/90c8fffbe594b48d5673.png"
+   },
+   "ssim_hard": {
+    "digest": "dd1f816bfdb9858e7fe8159ef1c1a48d2d04941734380364016cb0a0e826322a",
+    "phash": 32,
+    "ssim": 0.1464,
+    "img": "stimuli/life_unmirrored/dd1f816bfdb9858e7fe8.png"
+   }
+  },
+  {
+   "target": "e9fafda0732bc9d50aee79d3744fde52e167d2e1425effc6bdc79b5b1b66b8cb",
+   "target_img": "stimuli/life_unmirrored/e9fafda0732bc9d50aee.png",
+   "random": {
+    "digest": "3ef43b6b8a79c6bedf90f00b84594ca53cced3e28577c29bf4690e34e2fa624a",
+    "phash": 36,
+    "ssim": 0.0139,
+    "img": "stimuli/life_unmirrored/3ef43b6b8a79c6bedf90.png"
+   },
+   "phash_hard": {
+    "digest": "b111a8d62e48e0583e573e389f896f99c1fe848c686eec3f4a8a9b5cd3d8223e",
+    "phash": 12,
+    "ssim": 0.0465,
+    "img": "stimuli/life_unmirrored/b111a8d62e48e0583e57.png"
+   },
+   "ssim_hard": {
+    "digest": "531eda46d74b4a0ce0be24e2862d8cfdc63d0ada2d50e00ca4648857cf94dd8b",
+    "phash": 28,
+    "ssim": 0.1531,
+    "img": "stimuli/life_unmirrored/531eda46d74b4a0ce0be.png"
+   }
+  },
+  {
+   "target": "ba60ac1e1a94f71be1971bb59f4dba33c5156fe027f7fe58f11f248f7ef5c024",
+   "target_img": "stimuli/life_unmirrored/ba60ac1e1a94f71be197.png",
+   "random": {
+    "digest": "74a28bb9fb35c703e13af5b4be9656fe73ab450e8543c974ade0ff29e174add5",
+    "phash": 26,
+    "ssim": 0.0269,
+    "img": "stimuli/life_unmirrored/74a28bb9fb35c703e13a.png"
+   },
+   "phash_hard": {
+    "digest": "b51c7710032e4b722d1c4ef232031b6b896875289e0bd5e641a4ffad82a9c4c2",
+    "phash": 14,
+    "ssim": 0.0646,
+    "img": "stimuli/life_unmirrored/b51c7710032e4b722d1c.png"
+   },
+   "ssim_hard": {
+    "digest": "faa3950ea073baafd66a17699b911d27c83102adc18fcf0e6448f7f04c8517e1",
+    "phash": 22,
+    "ssim": 0.136,
+    "img": "stimuli/life_unmirrored/faa3950ea073baafd66a.png"
+   }
+  },
+  {
+   "target": "5ed1ebc3800e975e5e43e8793e8eccafb6a1476f0ade2a6da5cc1f524ef7816b",
+   "target_img": "stimuli/life_unmirrored/5ed1ebc3800e975e5e43.png",
+   "random": {
+    "digest": "1a02ce6bac814100373ddcf0b5a023e0bc6e5326e324c3eba520370e045607e8",
+    "phash": 36,
+    "ssim": 0.0155,
+    "img": "stimuli/life_unmirrored/1a02ce6bac814100373d.png"
+   },
+   "phash_hard": {
+    "digest": "fc3e223b8839e52cd2a5631112f7b20ccbf37f5e6341e3695c4ef770bbb58216",
+    "phash": 14,
+    "ssim": 0.0309,
+    "img": "stimuli/life_unmirrored/fc3e223b8839e52cd2a5.png"
+   },
+   "ssim_hard": {
+    "digest": "1cd52ab4627a708bf73ded990b510535181ece5f8d432545fde01e2a65192d79",
+    "phash": 28,
+    "ssim": 0.1328,
+    "img": "stimuli/life_unmirrored/1cd52ab4627a708bf73d.png"
+   }
+  },
+  {
+   "target": "c68c5c0ac0948738d137312166df6686dcd9dc510c418f87e4e5f1ed19d6cda0",
+   "target_img": "stimuli/life_unmirrored/c68c5c0ac0948738d137.png",
+   "random": {
+    "digest": "76d386f5771000ee790cffb3b0bafd503dc91d1ab60efd7eb1817fd2d12b33cf",
+    "phash": 30,
+    "ssim": 0.0345,
+    "img": "stimuli/life_unmirrored/76d386f5771000ee790c.png"
+   },
+   "phash_hard": {
+    "digest": "5634d41364651c32ab278943b6b717e6f3d5b5fc0d5e202c83c5c92f89473576",
+    "phash": 14,
+    "ssim": 0.1179,
+    "img": "stimuli/life_unmirrored/5634d41364651c32ab27.png"
+   },
+   "ssim_hard": {
+    "digest": "4afd8adc3e0ef254e9d09c40d7ba95aa072401f6dcb9eb6f31d948b10ac0ffc5",
+    "phash": 32,
+    "ssim": 0.1373,
+    "img": "stimuli/life_unmirrored/4afd8adc3e0ef254e9d0.png"
+   }
+  },
+  {
+   "target": "a6d50ca12719f481e8331ca8aa2af42024523bc6bb44f7802b083d9b3fa3921a",
+   "target_img": "stimuli/life_unmirrored/a6d50ca12719f481e833.png",
+   "random": {
+    "digest": "7e7c50e65e8537b4bb6075722d8c539a1356d1cb9612cb8ccd423b7b45fce415",
+    "phash": 26,
+    "ssim": 0.0055,
+    "img": "stimuli/life_unmirrored/7e7c50e65e8537b4bb60.png"
+   },
+   "phash_hard": {
+    "digest": "0f89f3c41650bb50bdb1d22388eccb0de5db1e8893a9663a8b878066a4d0db11",
+    "phash": 14,
+    "ssim": -0.0315,
+    "img": "stimuli/life_unmirrored/0f89f3c41650bb50bdb1.png"
+   },
+   "ssim_hard": {
+    "digest": "796a811ddb95bb9b763f9c8d5bdb668f735576cadcb8dc00ebc932da9e5e14a8",
+    "phash": 30,
+    "ssim": 0.1489,
+    "img": "stimuli/life_unmirrored/796a811ddb95bb9b763f.png"
+   }
+  },
+  {
+   "target": "eb5c37ac7a56c495723d7db3daec9deec01ef7bbe47047477ee3a30bdfd4a20e",
+   "target_img": "stimuli/life_unmirrored/eb5c37ac7a56c495723d.png",
+   "random": {
+    "digest": "790746e3af1610119dccbe2cbf146d87e9fa7413b1af1d0be3f5b84d9c89bb9d",
+    "phash": 38,
+    "ssim": -0.0381,
+    "img": "stimuli/life_unmirrored/790746e3af1610119dcc.png"
+   },
+   "phash_hard": {
+    "digest": "242c3230df5b8ac79fda0b2322bf20704e225dcdb375bb47ae558b1613a141ff",
+    "phash": 14,
+    "ssim": 0.0629,
+    "img": "stimuli/life_unmirrored/242c3230df5b8ac79fda.png"
+   },
+   "ssim_hard": {
+    "digest": "d243363b2ade8c475210e7ce314149c21793387ea6de846f85cd9b5fe0de6837",
+    "phash": 32,
+    "ssim": 0.1594,
+    "img": "stimuli/life_unmirrored/d243363b2ade8c475210.png"
+   }
+  },
+  {
+   "target": "47f1b06ab9662f243b4dcbdff3534473580473c79d7357ef3581fef69f8fcf21",
+   "target_img": "stimuli/life_unmirrored/47f1b06ab9662f243b4d.png",
+   "random": {
+    "digest": "0dddca0155aa7b1edc9eeef2808dfd3f3a327b9b5ffd011c0ff18fdab5fe0ac6",
+    "phash": 34,
+    "ssim": -0.0009,
+    "img": "stimuli/life_unmirrored/0dddca0155aa7b1edc9e.png"
+   },
+   "phash_hard": {
+    "digest": "bc681045e98970ae7295b847cf17b4aba0267b16600450020261785986d44051",
+    "phash": 14,
+    "ssim": 0.0384,
+    "img": "stimuli/life_unmirrored/bc681045e98970ae7295.png"
+   },
+   "ssim_hard": {
+    "digest": "94d50214a387afb4b5848735df6dd8f6d1e95489152cc2fa7f6321f439d26052",
+    "phash": 30,
+    "ssim": 0.1517,
+    "img": "stimuli/life_unmirrored/94d50214a387afb4b584.png"
+   }
+  },
+  {
+   "target": "a3466565202c304873f38aecc37cb5dd538a1d7ec2807d1533f4bcfc9c5ec13c",
+   "target_img": "stimuli/life_unmirrored/a3466565202c304873f3.png",
+   "random": {
+    "digest": "fd7652eb43122aa28a907517797dc28ebd1bc572fd1bc6966202d4b177dd6460",
+    "phash": 36,
+    "ssim": -0.0284,
+    "img": "stimuli/life_unmirrored/fd7652eb43122aa28a90.png"
+   },
+   "phash_hard": {
+    "digest": "adaa747eb9c95a81c77d8fff4aa22dfd05508c0bd768f22a544ec10ba844b933",
+    "phash": 14,
+    "ssim": 0.0071,
+    "img": "stimuli/life_unmirrored/adaa747eb9c95a81c77d.png"
+   },
+   "ssim_hard": {
+    "digest": "be8b36764861a7b8f7752dca0ed4280623cdb33db8c68300e66c51c0dee43dfa",
+    "phash": 26,
+    "ssim": 0.1463,
+    "img": "stimuli/life_unmirrored/be8b36764861a7b8f775.png"
+   }
+  },
+  {
+   "target": "5e4cdcd13729fcca21b9cf267691f754e5cbaaff792f0657f0908945568dfa37",
+   "target_img": "stimuli/life_unmirrored/5e4cdcd13729fcca21b9.png",
+   "random": {
+    "digest": "681a379d165ef8be81d5b6384a357fc7443e63342e7b458d1aa0df539295c17a",
+    "phash": 30,
+    "ssim": 0.0566,
+    "img": "stimuli/life_unmirrored/681a379d165ef8be81d5.png"
+   },
+   "phash_hard": {
+    "digest": "daee74aaf40e4cdde9b50e5eea3696945ef3bc2a7dcd91499d6c259a55f845ef",
+    "phash": 14,
+    "ssim": -0.0136,
+    "img": "stimuli/life_unmirrored/daee74aaf40e4cdde9b5.png"
+   },
+   "ssim_hard": {
+    "digest": "6d7a96e7b7579d6bc6948387a125ae9513b163a6944c006384473dd39a061364",
+    "phash": 24,
+    "ssim": 0.1379,
+    "img": "stimuli/life_unmirrored/6d7a96e7b7579d6bc694.png"
+   }
+  },
+  {
+   "target": "738a789a875958b046f61197dcf87f4c5290511852b7b71db476f7740a14c88c",
+   "target_img": "stimuli/life_unmirrored/738a789a875958b046f6.png",
+   "random": {
+    "digest": "bb1f9a4cfcf16ad3dc8b0e0b38d8d92bddf0f764c84d20eed0ee81096fd271d5",
+    "phash": 32,
+    "ssim": -0.0258,
+    "img": "stimuli/life_unmirrored/bb1f9a4cfcf16ad3dc8b.png"
+   },
+   "phash_hard": {
+    "digest": "88c980f0bf8816e30d0c5737187614f27dbb2869687cedcec9365197e0099c51",
+    "phash": 14,
+    "ssim": 0.0381,
+    "img": "stimuli/life_unmirrored/88c980f0bf8816e30d0c.png"
+   },
+   "ssim_hard": {
+    "digest": "c95c7ecb5c8aadf86f5aab59577b7bbb50a5f807c97ac0fd8a474f354ec3e35c",
+    "phash": 24,
+    "ssim": 0.1382,
+    "img": "stimuli/life_unmirrored/c95c7ecb5c8aadf86f5a.png"
+   }
+  },
+  {
+   "target": "36d5c466672859a236f9505a0114f8b60682fda4184a6ea74d82016b62b8b149",
+   "target_img": "stimuli/life_unmirrored/36d5c466672859a236f9.png",
+   "random": {
+    "digest": "cda47e85e9c1e9187776d5a8c3c3617b37da4db079e2985b08556626782848ba",
+    "phash": 32,
+    "ssim": 0.0161,
+    "img": "stimuli/life_unmirrored/cda47e85e9c1e9187776.png"
+   },
+   "phash_hard": {
+    "digest": "76751c77273a9e43e0e2c9e3e6586dab23157353a5ba2d8e6e687971472deab3",
+    "phash": 16,
+    "ssim": 0.0368,
+    "img": "stimuli/life_unmirrored/76751c77273a9e43e0e2.png"
+   },
+   "ssim_hard": {
+    "digest": "cf994c75a4485af6d0c662c43f4aa665467cf90f26cab7ecb8990116066fb71e",
+    "phash": 30,
+    "ssim": 0.1285,
+    "img": "stimuli/life_unmirrored/cf994c75a4485af6d0c6.png"
+   }
+  },
+  {
+   "target": "f87ae44524f9f3de021442cb9526b4d7811e75dfe1b012b4bcd1cef365cf72ed",
+   "target_img": "stimuli/life_unmirrored/f87ae44524f9f3de0214.png",
+   "random": {
+    "digest": "913df7560aca5daf21f45050556470f31982ea271274d5ea1e75334b56ec7fec",
+    "phash": 30,
+    "ssim": -0.0109,
+    "img": "stimuli/life_unmirrored/913df7560aca5daf21f4.png"
+   },
+   "phash_hard": {
+    "digest": "490cf48f57f41150af12b2bd65d8c978a63e8644623d7bc493c408a3b403972e",
+    "phash": 14,
+    "ssim": 0.0186,
+    "img": "stimuli/life_unmirrored/490cf48f57f41150af12.png"
+   },
+   "ssim_hard": {
+    "digest": "098fc0ae5175a4b290be5385344135ee870ecce6d5544691086bca07b52637f7",
+    "phash": 24,
+    "ssim": 0.1375,
+    "img": "stimuli/life_unmirrored/098fc0ae5175a4b290be.png"
+   }
+  },
+  {
+   "target": "d10ae2314c30937ffffa2c869850c39ff85370b52905a6caa967a79df9c68bf2",
+   "target_img": "stimuli/life_unmirrored/d10ae2314c30937ffffa.png",
+   "random": {
+    "digest": "006dea85f0a40be573e526cff520523a6bd8001e88eecad681c9a7a757350299",
+    "phash": 30,
+    "ssim": 0.0055,
+    "img": "stimuli/life_unmirrored/006dea85f0a40be573e5.png"
+   },
+   "phash_hard": {
+    "digest": "1af7ff012a632580caa68b86ce906d4bf3088b34815971f33464c4cce6930f73",
+    "phash": 16,
+    "ssim": 0.0355,
+    "img": "stimuli/life_unmirrored/1af7ff012a632580caa6.png"
+   },
+   "ssim_hard": {
+    "digest": "cc6f79ed7e9fb8f276b24657cbf8750891cd6dc95cdcf3c8ebb599f0f9f5cb08",
+    "phash": 28,
+    "ssim": 0.1341,
+    "img": "stimuli/life_unmirrored/cc6f79ed7e9fb8f276b2.png"
+   }
+  },
+  {
+   "target": "a64cd02de951dacfb385ae707aa678e23cf445cd2dced1547ceb6396066931df",
+   "target_img": "stimuli/life_unmirrored/a64cd02de951dacfb385.png",
+   "random": {
+    "digest": "a83ad81d2399369f7a5b12bfc320f76f48a85e2fe96b09dcec4ef999b75c67ce",
+    "phash": 30,
+    "ssim": -0.0017,
+    "img": "stimuli/life_unmirrored/a83ad81d2399369f7a5b.png"
+   },
+   "phash_hard": {
+    "digest": "fdd77325d8865cfd17b1b9a71d0e588f73da778538ac0dd8617d79edb1c04812",
+    "phash": 14,
+    "ssim": 0.019,
+    "img": "stimuli/life_unmirrored/fdd77325d8865cfd17b1.png"
+   },
+   "ssim_hard": {
+    "digest": "9a8e93fd5be8829c4254670633b6b7a79da946a1d126a2f1679b11ff9abfdc62",
+    "phash": 24,
+    "ssim": 0.1628,
+    "img": "stimuli/life_unmirrored/9a8e93fd5be8829c4254.png"
+   }
+  },
+  {
+   "target": "15e613fbbb06682d234e69e4302da25c40bdd869e4544e6c45d8be669be69566",
+   "target_img": "stimuli/life_unmirrored/15e613fbbb06682d234e.png",
+   "random": {
+    "digest": "8808672dccfebcde68269ecaab810fe648a91f40f953e219aa20d130835c401f",
+    "phash": 28,
+    "ssim": -0.0017,
+    "img": "stimuli/life_unmirrored/8808672dccfebcde6826.png"
+   },
+   "phash_hard": {
+    "digest": "ce84ed75071749655ed2ec5ae1f99c6c27134bf9eb546c07576590584832cd45",
+    "phash": 16,
+    "ssim": 0.0688,
+    "img": "stimuli/life_unmirrored/ce84ed75071749655ed2.png"
+   },
+   "ssim_hard": {
+    "digest": "97c0900e87ded2c020837c067a491f80e85444813d904f68371d6899c1ece341",
+    "phash": 26,
+    "ssim": 0.1394,
+    "img": "stimuli/life_unmirrored/97c0900e87ded2c02083.png"
+   }
+  },
+  {
+   "target": "e51ab0d0f7eaea6c27b705d2044051809e2ef4a2ef23841228d07f52d79436cf",
+   "target_img": "stimuli/life_unmirrored/e51ab0d0f7eaea6c27b7.png",
+   "random": {
+    "digest": "44904d719722ae728cfd4d8e3a356ad8cf1c29f820f7d1a904324a63743f3fff",
+    "phash": 30,
+    "ssim": 0.0447,
+    "img": "stimuli/life_unmirrored/44904d719722ae728cfd.png"
+   },
+   "phash_hard": {
+    "digest": "be9b64c8a2fd241144f0eadb10f2d11428ed97050d949c5e993bc1ecf5476bb8",
+    "phash": 16,
+    "ssim": 0.046,
+    "img": "stimuli/life_unmirrored/be9b64c8a2fd241144f0.png"
+   },
+   "ssim_hard": {
+    "digest": "60d4e6164c1395cc0baf45f8a47ccfc89f4a9c1111a277fc9a0f0ae0242f003f",
+    "phash": 22,
+    "ssim": 0.1259,
+    "img": "stimuli/life_unmirrored/60d4e6164c1395cc0baf.png"
+   }
+  },
+  {
+   "target": "82ad75c18186e478d04ba587e3c94683678412ae28a518c79cbe9bb9c314b6ad",
+   "target_img": "stimuli/life_unmirrored/82ad75c18186e478d04b.png",
+   "random": {
+    "digest": "97007b5f157ce04afbcb420f07fb1152e7feba4288869f6e82ad5c73e7e4a473",
+    "phash": 32,
+    "ssim": 0.0299,
+    "img": "stimuli/life_unmirrored/97007b5f157ce04afbcb.png"
+   },
+   "phash_hard": {
+    "digest": "5550a9df962861ab2ab50a2901e941be2d5b05b075280fa63fc03c13c3ca8f4f",
+    "phash": 16,
+    "ssim": 0.0347,
+    "img": "stimuli/life_unmirrored/5550a9df962861ab2ab5.png"
+   },
+   "ssim_hard": {
+    "digest": "2988fa4582f4a701361aa9d3e8562d12059afde0b2e049acd0b895834ec541e8",
+    "phash": 28,
+    "ssim": 0.1492,
+    "img": "stimuli/life_unmirrored/2988fa4582f4a701361a.png"
+   }
+  },
+  {
+   "target": "d444197c4d61a49458bfb2092f04554f09c7d95ce85bdabeffee44f80d3fefa0",
+   "target_img": "stimuli/life_unmirrored/d444197c4d61a49458bf.png",
+   "random": {
+    "digest": "10aad6348f36b4cd6e7c8445cf23b161bcc2b0be54ab67661288783640030a7d",
+    "phash": 30,
+    "ssim": 0.0804,
+    "img": "stimuli/life_unmirrored/10aad6348f36b4cd6e7c.png"
+   },
+   "phash_hard": {
+    "digest": "f36f4bfc7172c9a23c7de984b95054c9779b7b14d4eac4b5c1b84e3781c01c2e",
+    "phash": 12,
+    "ssim": 0.0727,
+    "img": "stimuli/life_unmirrored/f36f4bfc7172c9a23c7d.png"
+   },
+   "ssim_hard": {
+    "digest": "0c2ed0376b9b003f989b3798237083555aff74c697c4659dbb74efed89a582f0",
+    "phash": 20,
+    "ssim": 0.1363,
+    "img": "stimuli/life_unmirrored/0c2ed0376b9b003f989b.png"
+   }
+  },
+  {
+   "target": "2703a8dcb01939f4024b755198fe6cb3c0e80098bd8ae34854992ba3dea572ca",
+   "target_img": "stimuli/life_unmirrored/2703a8dcb01939f4024b.png",
+   "random": {
+    "digest": "d42af1b8c30b30beaaa015c0315566b6a79ce9a8de6834cd3e0b231b6971022e",
+    "phash": 36,
+    "ssim": 0.0123,
+    "img": "stimuli/life_unmirrored/d42af1b8c30b30beaaa0.png"
+   },
+   "phash_hard": {
+    "digest": "dab626559b5afa4f2554851c70384552d0f3fc37cd87edcd00167745024bab92",
+    "phash": 16,
+    "ssim": 0.0087,
+    "img": "stimuli/life_unmirrored/dab626559b5afa4f2554.png"
+   },
+   "ssim_hard": {
+    "digest": "25b5939e15c007157e77301cfd45a9afeb8f6bfd17d71a6f8cc2ae2d1d4500f8",
+    "phash": 28,
+    "ssim": 0.1473,
+    "img": "stimuli/life_unmirrored/25b5939e15c007157e77.png"
+   }
+  },
+  {
+   "target": "d127ebbace568edf39a407e6b070531a58c7ac67cf19651c61c7c2a9d5be8d21",
+   "target_img": "stimuli/life_unmirrored/d127ebbace568edf39a4.png",
+   "random": {
+    "digest": "d8235add2ec07f6b18d8cd8dd5ff3572178de971dd2d64cf551de55b499ddd8d",
+    "phash": 26,
+    "ssim": 0.0329,
+    "img": "stimuli/life_unmirrored/d8235add2ec07f6b18d8.png"
+   },
+   "phash_hard": {
+    "digest": "05f141ab43aec17c7ad176fc239e382d006ef6717b528963fc21efb751a657a8",
+    "phash": 16,
+    "ssim": 0.0212,
+    "img": "stimuli/life_unmirrored/05f141ab43aec17c7ad1.png"
+   },
+   "ssim_hard": {
+    "digest": "2396da113b06b64f29d4416142fe2329455ab25727b6dbd1ed03a4c9f711e988",
+    "phash": 22,
+    "ssim": 0.1613,
+    "img": "stimuli/life_unmirrored/2396da113b06b64f29d4.png"
+   }
+  },
+  {
+   "target": "a06037b9715132a05bb0d9728797504da1105ffd82fd2b20adfa4f9121460c4a",
+   "target_img": "stimuli/life_unmirrored/a06037b9715132a05bb0.png",
+   "random": {
+    "digest": "0ca4e657dd73e28149aa3c4928404478ef2f6766944f8d27e7a4a28f0fef0b48",
+    "phash": 36,
+    "ssim": -0.0106,
+    "img": "stimuli/life_unmirrored/0ca4e657dd73e28149aa.png"
+   },
+   "phash_hard": {
+    "digest": "fdd7fe0c574e9102d4acb8ba3cc1fa547dd6a63c2fdc0bfed6b52c7130ded651",
+    "phash": 14,
+    "ssim": 0.0604,
+    "img": "stimuli/life_unmirrored/fdd7fe0c574e9102d4ac.png"
+   },
+   "ssim_hard": {
+    "digest": "f546f8c8eaaa7924f136d87856610abcd1feabbc705f917deec3b906c633d1e8",
+    "phash": 32,
+    "ssim": 0.1291,
+    "img": "stimuli/life_unmirrored/f546f8c8eaaa7924f136.png"
+   }
+  },
+  {
+   "target": "d3e255c87b6211ae5873dc0b6d2611eeb162c0fc495b6bdd6abe75fae8ccb5d4",
+   "target_img": "stimuli/life_unmirrored/d3e255c87b6211ae5873.png",
+   "random": {
+    "digest": "c7f30b6a2d72cb619c9b31f53de2f4e040af1b073733fd0ccb06f336d8b9afe4",
+    "phash": 30,
+    "ssim": -0.0188,
+    "img": "stimuli/life_unmirrored/c7f30b6a2d72cb619c9b.png"
+   },
+   "phash_hard": {
+    "digest": "8717e0d3a704317e643d939b7d28b442ac1ac2fc4d340bfe2e0938afa91f2948",
+    "phash": 16,
+    "ssim": 0.0446,
+    "img": "stimuli/life_unmirrored/8717e0d3a704317e643d.png"
+   },
+   "ssim_hard": {
+    "digest": "e2f2954ecca6dcd55e0ed7f424b9c59f9741681aa9b1e117016083b10f059837",
+    "phash": 26,
+    "ssim": 0.1322,
+    "img": "stimuli/life_unmirrored/e2f2954ecca6dcd55e0e.png"
+   }
+  },
+  {
+   "target": "7e5ccf70932301dbc895bd0f05ed86d8c1c672f06d18235c853f4ee3b50f24e6",
+   "target_img": "stimuli/life_unmirrored/7e5ccf70932301dbc895.png",
+   "random": {
+    "digest": "0e3e5e15f92ff1ea03b5b18f36e58f2d9b9222f1374b3852aa64b93418db9bc2",
+    "phash": 34,
+    "ssim": -0.0065,
+    "img": "stimuli/life_unmirrored/0e3e5e15f92ff1ea03b5.png"
+   },
+   "phash_hard": {
+    "digest": "e901f5e68f2e1226a11e09c23281a66077f20fbf765ca7e79d387cf4ed8a8366",
+    "phash": 14,
+    "ssim": -0.0144,
+    "img": "stimuli/life_unmirrored/e901f5e68f2e1226a11e.png"
+   },
+   "ssim_hard": {
+    "digest": "56d569fe77b1c1c72308542acb6b69dd61267d7d08332c93fc970d7e75fe28ef",
+    "phash": 32,
+    "ssim": 0.1468,
+    "img": "stimuli/life_unmirrored/56d569fe77b1c1c72308.png"
+   }
+  },
+  {
+   "target": "eb4fffd92ee12d0cbb3edc654e2447f047d27b283d196136f93a589d4a915398",
+   "target_img": "stimuli/life_unmirrored/eb4fffd92ee12d0cbb3e.png",
+   "random": {
+    "digest": "3ad5d7dc7138ce1e2e72f592497e55f0ba84b6839a908c579324bb6ad32e60e7",
+    "phash": 36,
+    "ssim": -0.0057,
+    "img": "stimuli/life_unmirrored/3ad5d7dc7138ce1e2e72.png"
+   },
+   "phash_hard": {
+    "digest": "9ddc3bf327c063d57ed05ad99cb953e5244471dc3edcb0fa3b1ace27ed4340ee",
+    "phash": 14,
+    "ssim": 0.0881,
+    "img": "stimuli/life_unmirrored/9ddc3bf327c063d57ed0.png"
+   },
+   "ssim_hard": {
+    "digest": "95b06406ac9c167e5fd0e5c6011c2f585d26134cf624ac3f42198108d65595bb",
+    "phash": 34,
+    "ssim": 0.1444,
+    "img": "stimuli/life_unmirrored/95b06406ac9c167e5fd0.png"
+   }
+  },
+  {
+   "target": "d4b4a0606ab2703a7608cb4c76ef5075dedb9ba263900b718c67f3a1a3f9adca",
+   "target_img": "stimuli/life_unmirrored/d4b4a0606ab2703a7608.png",
+   "random": {
+    "digest": "fefa4840968e6670d592c1ddc8cde2c6b287e9e731e7b539c7507c5692cd95df",
+    "phash": 34,
+    "ssim": -0.006,
+    "img": "stimuli/life_unmirrored/fefa4840968e6670d592.png"
+   },
+   "phash_hard": {
+    "digest": "c8bc511db2a8282d4f0969341e22d5d54bcc06869cb6dc6c47f819cfc79f9bce",
+    "phash": 16,
+    "ssim": 0.0199,
+    "img": "stimuli/life_unmirrored/c8bc511db2a8282d4f09.png"
+   },
+   "ssim_hard": {
+    "digest": "c845b68b93d345a2b1482f4cbd76488630cf6ddb64ce29d6c2f1665c9bd1c307",
+    "phash": 28,
+    "ssim": 0.155,
+    "img": "stimuli/life_unmirrored/c845b68b93d345a2b148.png"
+   }
+  },
+  {
+   "target": "a281950c262400897135fa862b098364d2b1f8821708182e7be4a6e7b7e4d5d3",
+   "target_img": "stimuli/life_unmirrored/a281950c262400897135.png",
+   "random": {
+    "digest": "d9560e6b25cd3201dd4b4e7857f734c1576b5acad7997040c51119d753ea58e7",
+    "phash": 30,
+    "ssim": 0.0099,
+    "img": "stimuli/life_unmirrored/d9560e6b25cd3201dd4b.png"
+   },
+   "phash_hard": {
+    "digest": "3399a1b2789d13cf7ff7195e4aeebfd18eb77e6d11662bf10a6b71450935a791",
+    "phash": 14,
+    "ssim": 0.0646,
+    "img": "stimuli/life_unmirrored/3399a1b2789d13cf7ff7.png"
+   },
+   "ssim_hard": {
+    "digest": "ae7cdf147023f3df06f6fdb5ee1e13580ae9c21e4ed30c5eebf23a10a6fc4120",
+    "phash": 22,
+    "ssim": 0.1439,
+    "img": "stimuli/life_unmirrored/ae7cdf147023f3df06f6.png"
+   }
+  },
+  {
+   "target": "702d6064335b1937f552e1120e0136a02eb1a728e80f46594a9e82d8e1e84e02",
+   "target_img": "stimuli/life_unmirrored/702d6064335b1937f552.png",
+   "random": {
+    "digest": "cc7f7c461cc096c00dd84712997b1953daaa972590decec9240ea55366e8968b",
+    "phash": 34,
+    "ssim": -0.032,
+    "img": "stimuli/life_unmirrored/cc7f7c461cc096c00dd8.png"
+   },
+   "phash_hard": {
+    "digest": "5fab83df750507912cd475d4469205e18a362526d9eff94fe7d1f9cb498557ac",
+    "phash": 14,
+    "ssim": 0.0926,
+    "img": "stimuli/life_unmirrored/5fab83df750507912cd4.png"
+   },
+   "ssim_hard": {
+    "digest": "d6506f835e7344962da7f9d568661f3382543e3219106f45ce4bf7444a0a9683",
+    "phash": 32,
+    "ssim": 0.1291,
+    "img": "stimuli/life_unmirrored/d6506f835e7344962da7.png"
+   }
+  },
+  {
+   "target": "262a17e3cf1094e65f43ce02495aaa24411d1d6662cf7701bcd32c54a0bb0b7a",
+   "target_img": "stimuli/life_unmirrored/262a17e3cf1094e65f43.png",
+   "random": {
+    "digest": "656af34aef99554a53e23e16b6767bc7129a470dab9377b93971ccb763c9545e",
+    "phash": 32,
+    "ssim": 0.0687,
+    "img": "stimuli/life_unmirrored/656af34aef99554a53e2.png"
+   },
+   "phash_hard": {
+    "digest": "f817e634cd88f4d8de4a3de63401152cf8e1a70236b71ac9968bc6fc8d5f97cc",
+    "phash": 12,
+    "ssim": 0.0575,
+    "img": "stimuli/life_unmirrored/f817e634cd88f4d8de4a.png"
+   },
+   "ssim_hard": {
+    "digest": "7aad83b97ff75f30b0ef192964c31e7c108d5b0b0c1ee775dd363a77d344e561",
+    "phash": 24,
+    "ssim": 0.1366,
+    "img": "stimuli/life_unmirrored/7aad83b97ff75f30b0ef.png"
+   }
+  },
+  {
+   "target": "8f84dc640e367286d1373e6c2d30f6b3756fa09f6e98b955cc5241dfcabc3356",
+   "target_img": "stimuli/life_unmirrored/8f84dc640e367286d137.png",
+   "random": {
+    "digest": "4170fb4738c25f33ea4e1b998fddb9dc5d01c4ff114bd679c3f3fd7ebf3ed63b",
+    "phash": 30,
+    "ssim": -0.0068,
+    "img": "stimuli/life_unmirrored/4170fb4738c25f33ea4e.png"
+   },
+   "phash_hard": {
+    "digest": "0a674b4f6a6abb0458a1c53a5e68fae22e849c89a3b1898b792672c4c7ce55aa",
+    "phash": 14,
+    "ssim": 0.047,
+    "img": "stimuli/life_unmirrored/0a674b4f6a6abb0458a1.png"
+   },
+   "ssim_hard": {
+    "digest": "3b0e54428f2e8d20080403202bf0967fa203c2a4b6b2f266ff6a417ea06e330a",
+    "phash": 26,
+    "ssim": 0.1367,
+    "img": "stimuli/life_unmirrored/3b0e54428f2e8d200804.png"
+   }
+  },
+  {
+   "target": "5385074a5745844b838e2d6e98d31ec6b9580d2f63e9f41b8c8eba4a25ba8c96",
+   "target_img": "stimuli/life_unmirrored/5385074a5745844b838e.png",
+   "random": {
+    "digest": "2eab1267f4a1bd70a60b398de60b30541c4fcfbbf935168ba7cb90771a5dd92d",
+    "phash": 30,
+    "ssim": 0.0301,
+    "img": "stimuli/life_unmirrored/2eab1267f4a1bd70a60b.png"
+   },
+   "phash_hard": {
+    "digest": "4999fbf1dbade0103288b3f9ddc7dc453cf939421e64b14f34fdbe184fba8240",
+    "phash": 14,
+    "ssim": 0.0373,
+    "img": "stimuli/life_unmirrored/4999fbf1dbade0103288.png"
+   },
+   "ssim_hard": {
+    "digest": "d6189f0b40f86f97fe85f6306e6735d58888af4d170ae1bc02afd81e82f46611",
+    "phash": 30,
+    "ssim": 0.1407,
+    "img": "stimuli/life_unmirrored/d6189f0b40f86f97fe85.png"
+   }
+  },
+  {
+   "target": "01fa576da3f89937f75370ac22ab57f3af4a67a5cfc480ca5b3a384d1014ef33",
+   "target_img": "stimuli/life_unmirrored/01fa576da3f89937f753.png",
+   "random": {
+    "digest": "8ad8831d7b29de7767ea730b81bdc0e08762009094fc41177aced894b058c7c7",
+    "phash": 26,
+    "ssim": 0.106,
+    "img": "stimuli/life_unmirrored/8ad8831d7b29de7767ea.png"
+   },
+   "phash_hard": {
+    "digest": "4106071331e0a4324f06675b4f2eb0d8130c6a15762834b3837731c3e7228bda",
+    "phash": 16,
+    "ssim": 0.0874,
+    "img": "stimuli/life_unmirrored/4106071331e0a4324f06.png"
+   },
+   "ssim_hard": {
+    "digest": "477fce954fc6eb1b1e552aa99eda60d27ad7a3bae2a6ee5b3ef2d12a50100cab",
+    "phash": 20,
+    "ssim": 0.1429,
+    "img": "stimuli/life_unmirrored/477fce954fc6eb1b1e55.png"
+   }
+  },
+  {
+   "target": "92748aeaf04d4a9a715c788822b3a0d0d6aae9a27f80053949d6dab5b0ea3cf9",
+   "target_img": "stimuli/life_unmirrored/92748aeaf04d4a9a715c.png",
+   "random": {
+    "digest": "b897d5ab0d944813a3e7a01e8504368bd596f5603a0ceb3e95a424b3f8f0223f",
+    "phash": 32,
+    "ssim": 0.0406,
+    "img": "stimuli/life_unmirrored/b897d5ab0d944813a3e7.png"
+   },
+   "phash_hard": {
+    "digest": "92d128c9c7e3b3179cdbd26016f59ab82b11995c12420bd8a2fb888df569937a",
+    "phash": 16,
+    "ssim": 0.0533,
+    "img": "stimuli/life_unmirrored/92d128c9c7e3b3179cdb.png"
+   },
+   "ssim_hard": {
+    "digest": "b5b4493f2289a057e98beac056bd188bac87fba9df78659fcabfc6841f4f98ff",
+    "phash": 22,
+    "ssim": 0.1611,
+    "img": "stimuli/life_unmirrored/b5b4493f2289a057e98b.png"
+   }
+  },
+  {
+   "target": "17c8c9a1ec9e7b6c9632322ccb8c3c55d30ba0cc063e62698cec374b13f25078",
+   "target_img": "stimuli/life_unmirrored/17c8c9a1ec9e7b6c9632.png",
+   "random": {
+    "digest": "afa592bdc48878f34054a5b7eb83f2b47157f7deba6aad842f427c49da9a2de9",
+    "phash": 34,
+    "ssim": 0.0232,
+    "img": "stimuli/life_unmirrored/afa592bdc48878f34054.png"
+   },
+   "phash_hard": {
+    "digest": "7539a9b62b93a4337c111b73aa7d629ea9e503ce1b9c7342ee59c40852af90d9",
+    "phash": 16,
+    "ssim": 0.0409,
+    "img": "stimuli/life_unmirrored/7539a9b62b93a4337c11.png"
+   },
+   "ssim_hard": {
+    "digest": "aec9b40b5c310b93827ee02686ac135e81ea027d14fa63708e00ea85de50b7e1",
+    "phash": 22,
+    "ssim": 0.1345,
+    "img": "stimuli/life_unmirrored/aec9b40b5c310b93827e.png"
+   }
+  },
+  {
+   "target": "ea9902957ce9d28bd4d6be0dcc41114279f87c22e86c1ce5221e52d3515aab2c",
+   "target_img": "stimuli/life_unmirrored/ea9902957ce9d28bd4d6.png",
+   "random": {
+    "digest": "654842718d5b20bb20d19c8a36238d3c4acebf5fb466e514564f5c37f55c2141",
+    "phash": 32,
+    "ssim": 0.004,
+    "img": "stimuli/life_unmirrored/654842718d5b20bb20d1.png"
+   },
+   "phash_hard": {
+    "digest": "e948398f84c19e892df82db262ec3bd4c92e6639c28c3f5594d419dc708716e6",
+    "phash": 14,
+    "ssim": 0.0817,
+    "img": "stimuli/life_unmirrored/e948398f84c19e892df8.png"
+   },
+   "ssim_hard": {
+    "digest": "d1893c7a6a277553233a669ad48ac75e3fb3dc649b5a51916f051813d66c1a8c",
+    "phash": 30,
+    "ssim": 0.1335,
+    "img": "stimuli/life_unmirrored/d1893c7a6a277553233a.png"
+   }
+  },
+  {
+   "target": "8075e402f60be4dd82c0360fb74f93537c1178017ad93861b00b4b8f34c61e6c",
+   "target_img": "stimuli/life_unmirrored/8075e402f60be4dd82c0.png",
+   "random": {
+    "digest": "d5c86b6995ce02234299325466e595dfd61ce399d46aa392bc306b3b3d72c917",
+    "phash": 36,
+    "ssim": 0.0385,
+    "img": "stimuli/life_unmirrored/d5c86b6995ce02234299.png"
+   },
+   "phash_hard": {
+    "digest": "165f00b4f190912f8e364d32da6da87d4f38a74b2fc3674006e61fa55add72b2",
+    "phash": 12,
+    "ssim": 0.0993,
+    "img": "stimuli/life_unmirrored/165f00b4f190912f8e36.png"
+   },
+   "ssim_hard": {
+    "digest": "d3d4dc441204d164b6867aa436f9cf522eb05c2d99389e77448eeaff49b2a423",
+    "phash": 26,
+    "ssim": 0.1314,
+    "img": "stimuli/life_unmirrored/d3d4dc441204d164b686.png"
+   }
+  },
+  {
+   "target": "a64dbce6ad9752579d3eacf8bd94bc0b7ebb9603bcbe71a3559d5d0382f05957",
+   "target_img": "stimuli/life_unmirrored/a64dbce6ad9752579d3e.png",
+   "random": {
+    "digest": "00642ff9676ab2d2624ce4477daf06f46d4535de35ec0fafd464f44c00013f20",
+    "phash": 34,
+    "ssim": 0.0371,
+    "img": "stimuli/life_unmirrored/00642ff9676ab2d2624c.png"
+   },
+   "phash_hard": {
+    "digest": "e77b6bb8c1df71fed0a6369cffc76d49be2fa2ab2a4aadb8d79999d958adddd9",
+    "phash": 12,
+    "ssim": 0.0815,
+    "img": "stimuli/life_unmirrored/e77b6bb8c1df71fed0a6.png"
+   },
+   "ssim_hard": {
+    "digest": "f3591f15365752c8f98c8f1cac37e2dca0bc1beddb2cf77ce30e8f535cc80b03",
+    "phash": 24,
+    "ssim": 0.1386,
+    "img": "stimuli/life_unmirrored/f3591f15365752c8f98c.png"
+   }
+  },
+  {
+   "target": "ae21c71d6d608d3c5f8e33288779380029abb1b16d1b5b572e66b6b0df23b060",
+   "target_img": "stimuli/life_unmirrored/ae21c71d6d608d3c5f8e.png",
+   "random": {
+    "digest": "51f508edae58129b0e6ad9e28dc10c48c49042d19385a5110021cf108a5e36de",
+    "phash": 26,
+    "ssim": 0.0577,
+    "img": "stimuli/life_unmirrored/51f508edae58129b0e6a.png"
+   },
+   "phash_hard": {
+    "digest": "0f4ea5e49f12884a496b0767d341f21dba0806851c023d585fc0abf22f979cb1",
+    "phash": 14,
+    "ssim": -0.0068,
+    "img": "stimuli/life_unmirrored/0f4ea5e49f12884a496b.png"
+   },
+   "ssim_hard": {
+    "digest": "a5a965c56b0199b1bde5aacd84e440565ed1535622f07dc56ddcc331eabfcea4",
+    "phash": 22,
+    "ssim": 0.1433,
+    "img": "stimuli/life_unmirrored/a5a965c56b0199b1bde5.png"
+   }
+  },
+  {
+   "target": "8a5f291561b25904d56e6c372bacec2fe61cdcc2f8cb6b43cea2f7ddf3e811a1",
+   "target_img": "stimuli/life_unmirrored/8a5f291561b25904d56e.png",
+   "random": {
+    "digest": "58bb5a74e973d832a3d557f53efbc716d1953311a72b87b78da3b66c07b7c7e5",
+    "phash": 38,
+    "ssim": 0.0165,
+    "img": "stimuli/life_unmirrored/58bb5a74e973d832a3d5.png"
+   },
+   "phash_hard": {
+    "digest": "56d8e91bad49cf5a335950e6f9cfe139185b1d0397d49d5d6a410dbc054f2c2b",
+    "phash": 14,
+    "ssim": 0.0723,
+    "img": "stimuli/life_unmirrored/56d8e91bad49cf5a3359.png"
+   },
+   "ssim_hard": {
+    "digest": "683c35aaa5bbeba708131641ad1d32fe29ed4a5111314d1388907f8ce758dcdd",
+    "phash": 26,
+    "ssim": 0.1458,
+    "img": "stimuli/life_unmirrored/683c35aaa5bbeba70813.png"
+   }
+  },
+  {
+   "target": "3924f9d06c344fc5d8ec753568cb5e9d6c6eb366b5e806a9dd137de494050341",
+   "target_img": "stimuli/life_unmirrored/3924f9d06c344fc5d8ec.png",
+   "random": {
+    "digest": "12bb93ec21734cf124d53f04838b7a337c5ba5dbfb30d72e6435b9d139d923fd",
+    "phash": 40,
+    "ssim": -0.0186,
+    "img": "stimuli/life_unmirrored/12bb93ec21734cf124d5.png"
+   },
+   "phash_hard": {
+    "digest": "43f30bb8e4d3670d79660fc0b100c5088aaa3199bcb3705c2a3e42ec22aa0fdf",
+    "phash": 16,
+    "ssim": 0.0332,
+    "img": "stimuli/life_unmirrored/43f30bb8e4d3670d7966.png"
+   },
+   "ssim_hard": {
+    "digest": "a09d632fe95c1c68932c24d50394925930908b4c35d7a2fd29e63ef3832d2a95",
+    "phash": 22,
+    "ssim": 0.1437,
+    "img": "stimuli/life_unmirrored/a09d632fe95c1c68932c.png"
+   }
+  },
+  {
+   "target": "06c5ca1ee5c28367ae8174074b34361255ee7aee99fea580ba58c6c7995372fd",
+   "target_img": "stimuli/life_unmirrored/06c5ca1ee5c28367ae81.png",
+   "random": {
+    "digest": "e72b06343700ac83623fc35e3ede4547e2be9d67f5283c41814b338886362892",
+    "phash": 38,
+    "ssim": -0.0045,
+    "img": "stimuli/life_unmirrored/e72b06343700ac83623f.png"
+   },
+   "phash_hard": {
+    "digest": "7da1da5b6c4a67968219b7cc586ba65dea5b6318a7bd65c26ee3037ec1a405fc",
+    "phash": 14,
+    "ssim": 0.0538,
+    "img": "stimuli/life_unmirrored/7da1da5b6c4a67968219.png"
+   },
+   "ssim_hard": {
+    "digest": "c466f75abc084d72c09f2f5f9418c7c868394e1ece713068f57b82f16e6a480d",
+    "phash": 26,
+    "ssim": 0.1453,
+    "img": "stimuli/life_unmirrored/c466f75abc084d72c09f.png"
+   }
+  },
+  {
+   "target": "7fde5149059d9afdea811ab44b6ebcb5c169572866d33246e9cd5645b050d4c2",
+   "target_img": "stimuli/life_unmirrored/7fde5149059d9afdea81.png",
+   "random": {
+    "digest": "171ea2789f05a23d4386e6bcaedf33f1d8f1e1e90d4781fc8e0e8cef2339b624",
+    "phash": 34,
+    "ssim": -0.0117,
+    "img": "stimuli/life_unmirrored/171ea2789f05a23d4386.png"
+   },
+   "phash_hard": {
+    "digest": "6403cdb8c1478a2d69f0f2d07c5b50dfcd369bc7b8e979857e0d6f65bd0a13e9",
+    "phash": 14,
+    "ssim": 0.057,
+    "img": "stimuli/life_unmirrored/6403cdb8c1478a2d69f0.png"
+   },
+   "ssim_hard": {
+    "digest": "a842803932797c1b18091ea3afef6c69df73fe4101ad9bbffc595be7e5e66830",
+    "phash": 30,
+    "ssim": 0.1359,
+    "img": "stimuli/life_unmirrored/a842803932797c1b1809.png"
+   }
+  },
+  {
+   "target": "69d22b67014856feb9564779d40825d4b3c4598d3a78c4a9f3097f3fdf250904",
+   "target_img": "stimuli/life_unmirrored/69d22b67014856feb956.png",
+   "random": {
+    "digest": "961adac2dbca4ce358bbe71aa469fdf99546ebe03edac2be813013bf8a73d027",
+    "phash": 32,
+    "ssim": 0.005,
+    "img": "stimuli/life_unmirrored/961adac2dbca4ce358bb.png"
+   },
+   "phash_hard": {
+    "digest": "21bcef4f76f65eeab0466dd1e5e523c4c2581f2d37eca181665ebe78fc0a365e",
+    "phash": 16,
+    "ssim": 0.0744,
+    "img": "stimuli/life_unmirrored/21bcef4f76f65eeab046.png"
+   },
+   "ssim_hard": {
+    "digest": "f4381bd768c626b116fcfb4141a45f3daef52b6fadca6077c4967b51138ca6ee",
+    "phash": 24,
+    "ssim": 0.1271,
+    "img": "stimuli/life_unmirrored/f4381bd768c626b116fc.png"
+   }
+  },
+  {
+   "target": "be680f5d49a529581ed8657c161f65bc96c8209aee72fe12079ae3e85ac76171",
+   "target_img": "stimuli/life_unmirrored/be680f5d49a529581ed8.png",
+   "random": {
+    "digest": "46385ef508c67415aa26efb6d59af6439cd93c9f682f9f109f6a100568026efb",
+    "phash": 30,
+    "ssim": -0.0017,
+    "img": "stimuli/life_unmirrored/46385ef508c67415aa26.png"
+   },
+   "phash_hard": {
+    "digest": "45a38a136b46614d8b26c98e967d989fcd1b98bae9c149843a5d6772d2313a1d",
+    "phash": 14,
+    "ssim": 0.0389,
+    "img": "stimuli/life_unmirrored/45a38a136b46614d8b26.png"
+   },
+   "ssim_hard": {
+    "digest": "aacea279a76a231361855cbb8fdcef39c6abb45bac6f52fb19a6ac5e75e14508",
+    "phash": 30,
+    "ssim": 0.1312,
+    "img": "stimuli/life_unmirrored/aacea279a76a23136185.png"
+   }
+  },
+  {
+   "target": "9d3ec60a40dc41ed1a0112b54c3acb72c7139a98c2f1705914eaf21580cda5fb",
+   "target_img": "stimuli/life_unmirrored/9d3ec60a40dc41ed1a01.png",
+   "random": {
+    "digest": "b32cf6651d8aaecb0216fca16765ae34b838b69106582c501090632ae614bb41",
+    "phash": 44,
+    "ssim": 0.0058,
+    "img": "stimuli/life_unmirrored/b32cf6651d8aaecb0216.png"
+   },
+   "phash_hard": {
+    "digest": "e496730281fd553b98ef046922b6aa8ee9483b87c78b45b441dfc7df1a12cdf5",
+    "phash": 16,
+    "ssim": 0.0322,
+    "img": "stimuli/life_unmirrored/e496730281fd553b98ef.png"
+   },
+   "ssim_hard": {
+    "digest": "fff1ea427307b126b4abfc28f22853d85a17f60c1569b718834c571ae1e56f21",
+    "phash": 26,
+    "ssim": 0.1287,
+    "img": "stimuli/life_unmirrored/fff1ea427307b126b4ab.png"
+   }
+  },
+  {
+   "target": "1beb4d9cdc93c26562ab9b81ad42a5d45a2d33a631b2acb9c410420488962781",
+   "target_img": "stimuli/life_unmirrored/1beb4d9cdc93c26562ab.png",
+   "random": {
+    "digest": "f023b14bd373db68b591f3e599e87dd47db84a66dec5b0b3bf7e8fc89aa85c7e",
+    "phash": 26,
+    "ssim": 0.0316,
+    "img": "stimuli/life_unmirrored/f023b14bd373db68b591.png"
+   },
+   "phash_hard": {
+    "digest": "67522bb6dd1823ce997f798a4d8dc236e585cfbe8a8f1cf34b05899cd0f991dd",
+    "phash": 16,
+    "ssim": 0.1035,
+    "img": "stimuli/life_unmirrored/67522bb6dd1823ce997f.png"
+   },
+   "ssim_hard": {
+    "digest": "2b4eac049b87a79dd04c40222c53dbf74a3fb5ab26b49de70c85a24275be9656",
+    "phash": 32,
+    "ssim": 0.1448,
+    "img": "stimuli/life_unmirrored/2b4eac049b87a79dd04c.png"
+   }
+  },
+  {
+   "target": "9c0fb5c597d708b8e2b08d301b5a4139a03b0a1884ef7bd4eac5b80131be825f",
+   "target_img": "stimuli/life_unmirrored/9c0fb5c597d708b8e2b0.png",
+   "random": {
+    "digest": "19ee4a53d84206c8d14fc08bfc88be393b7429f897ddebcf72013392dbf2d7d0",
+    "phash": 32,
+    "ssim": 0.0241,
+    "img": "stimuli/life_unmirrored/19ee4a53d84206c8d14f.png"
+   },
+   "phash_hard": {
+    "digest": "6f496dd5a9274d7d7ed865f3d569dc388a8ce97d18464f27a37d798300ad8309",
+    "phash": 16,
+    "ssim": 0.0503,
+    "img": "stimuli/life_unmirrored/6f496dd5a9274d7d7ed8.png"
+   },
+   "ssim_hard": {
+    "digest": "0b95cc88542bb57497eb1c8847965941b3711029f8d6e39bd57a6b122d2b7270",
+    "phash": 24,
+    "ssim": 0.1388,
+    "img": "stimuli/life_unmirrored/0b95cc88542bb57497eb.png"
+   }
+  },
+  {
+   "target": "aa1cb0fbd2c51ec439591cfb65577ef673825aa0e2153ce4bfd11c424beb7bff",
+   "target_img": "stimuli/life_unmirrored/aa1cb0fbd2c51ec43959.png",
+   "random": {
+    "digest": "a4e96d82fc55febc35f7cb448c2d2754861eceae48723d67fbe6e18fba2550f2",
+    "phash": 26,
+    "ssim": 0.0605,
+    "img": "stimuli/life_unmirrored/a4e96d82fc55febc35f7.png"
+   },
+   "phash_hard": {
+    "digest": "cfac83b7167a17255e07ff3e18e9f9f58462bd067fac9e98494b83dbf6f64177",
+    "phash": 14,
+    "ssim": 0.0721,
+    "img": "stimuli/life_unmirrored/cfac83b7167a17255e07.png"
+   },
+   "ssim_hard": {
+    "digest": "368345512b36115607b78b59c92c658af3e1b610ca802d1d15b6398bf03e8685",
+    "phash": 32,
+    "ssim": 0.1424,
+    "img": "stimuli/life_unmirrored/368345512b36115607b7.png"
+   }
+  }
+ ]
+}

@@ -17,6 +17,11 @@ import numpy as np
 R = os.environ.get("VCF_RESULTS", os.path.join(os.path.dirname(os.path.abspath(__file__)), "results"))
 
 
+def load_ms():
+    with open(os.path.join(R, "scale_sensitivity.json")) as f:
+        return json.load(f)
+
+
 def load(name):
     with open(os.path.join(R, f"v2_{name}.json")) as f:
         return json.load(f)
@@ -272,6 +277,32 @@ V["IMPL1"] = (
     f"likely to find hardest to tell apart at a glance, so the metrics reward the property a "
     f"human comparison may lack most. Nothing in our data shows that any configuration is "
     f"safe, and without human data nothing could."
+)
+
+# --- matched-pair benchmark (measure_scale.py) ---------------------------
+_ms = {(c["configuration"], c["display_size"]): c for c in load_ms()["conditions"]}
+_def = ("walk_17x9", "life_32x32_8", "life_32x32_8_unmirrored", "voronoi_16")
+for size in (32, 64, 128):
+    for key in ("mean_ssim_window_7", "mean_ssim_relative_window"):
+        assert _ms[("life_32x32_8", size)][key] < min(_ms[("walk_17x9", size)][key], _ms[("voronoi_16", size)][key])
+assert _ms[("walk_17x9", 32)]["mean_ssim_window_7"] > _ms[("voronoi_16", 32)]["mean_ssim_window_7"]
+assert _ms[("walk_17x9", 32)]["mean_ssim_relative_window"] < _ms[("voronoi_16", 32)]["mean_ssim_relative_window"]
+_rhos = [_ms[(c, z)]["spearman_ssim_and_negative_phash"] for c in _def for z in (32, 64, 128)]
+_m64, _u64 = _ms[("life_32x32_8", 64)], _ms[("life_32x32_8_unmirrored", 64)]
+V["MATCHED_TEXT"] = (
+    f"It reproduces the symmetry account quantitatively. The 32 odd-frequency pHash bits contribute "
+    f"an expected {_u64['expected_hamming_from_odd_horizontal_bits']:.1f} bits of distance between random "
+    f"unmirrored cellular images and {_m64['expected_hamming_from_odd_horizontal_bits']:.1f} for mirrored ones, "
+    f"which accounts for the gap between {_u64['mean_phash_distance']:.2f} and "
+    f"{_m64['mean_phash_distance']:.2f} bits. With either window, the mirrored cellular encoding has lower "
+    f"SSIM than random-walk and Voronoi at every size, while the order of those two depends on the window. "
+    f"At 32 pixels their fixed-window means are {_ms[('walk_17x9', 32)]['mean_ssim_window_7']:.3f} and "
+    f"{_ms[('voronoi_16', 32)]['mean_ssim_window_7']:.3f}, and their proportional-window means "
+    f"{_ms[('walk_17x9', 32)]['mean_ssim_relative_window']:.3f} and "
+    f"{_ms[('voronoi_16', 32)]['mean_ssim_relative_window']:.3f}. On individual pairs the two metrics barely "
+    f"agree. The Spearman correlation between SSIM and negative pHash distance is {min(_rhos):.2f} to "
+    f"{max(_rhos):.2f} across the four default configurations and three sizes, so the metrics would also "
+    f"select different pairs as hard stimuli."
 )
 
 if __name__ == "__main__":

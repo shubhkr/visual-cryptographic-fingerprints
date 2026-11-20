@@ -89,6 +89,17 @@ cellular encoding scores like an ideal hash under both metrics while being close
 to random texture, which people are likely worst at telling apart. Only a
 human-subject study can settle which encodings work.
 
+## Human study
+
+`study/` and `docs/` contain a preregistered comparison study, ready to run but
+not yet run. Participants judge whether two fingerprints show the same release
+under five representations (hex, random walk, mirrored and unmirrored cellular,
+Voronoi). Hard mismatches are chosen under the same attacker budget (2^16
+candidates) for every representation. The experiment is a static jsPsych page
+in `docs/` (GitHub Pages), saves data through DataPipe and recruits on
+Prolific. See `study/README.md` to launch it and `study/PREREGISTRATION.md`
+for the design.
+
 ## Repository structure
 
 ```
@@ -114,6 +125,8 @@ visual-cryptographic-fingerprints/
 │       ├── scale_sensitivity_legacy_voronoi.json  # same, v1 Voronoi intensities
 │       ├── collision_results.json  # reviewed version (v1)
 │       └── ca_shake_replication.json
+├── study/                    # human study: stimulus generator, prereg, analysis, tests
+├── docs/                     # the study web page (GitHub Pages root)
 └── examples/                 # sample fingerprints (v1 renderer)
 ```
 

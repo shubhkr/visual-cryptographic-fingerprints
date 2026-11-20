@@ -5,8 +5,7 @@
 const CONFIG = {
   // ACTION: web-app URL of the Google Apps Script in study/save_to_drive.gs
   SAVE_URL: "https://script.google.com/macros/s/AKfycbxAk2yTh4d9gVA2rl1YlxDcnQlhpq0Mxjju-RhtK5OH1_gTSO1hrG6fU4nKO_NAeDsbrw/exec",
-  // ACTION: completion code from your Prolific study
-  PROLIFIC_COMPLETION_CODE: "REPLACE_WITH_PROLIFIC_CODE",
+  PROLIFIC_COMPLETION_CODE: "C1L65YLF",
   // ACTION: researcher contact shown on the consent page
   CONTACT: "shubhambtps@live.in",
   DISPLAY_PX: 192,
@@ -166,12 +165,14 @@ timeline.push({
     <div class="consent">
       <h2>Consent</h2>
       <p>This is a research study about how people compare digital fingerprints of software releases.
-      It takes about 15 minutes. You will see pairs of codes or images and decide whether they match.</p>
+      It takes about 18 minutes. You will see pairs of codes or images and decide whether they match.</p>
       <p>We record your answers and response times and store them in a private Google Drive folder
       that only the researchers can open. We do not collect your name or contact details.
       Your Prolific ID is stored only to manage payment and is removed before the data are shared.
       You can stop at any time by closing the window.</p>
-      <!-- ACTION: add ethics-review details required by your review body. -->
+      <p>The study is run by an independent researcher with no institutional ethics board, so it was not
+      reviewed by one. It involves minimal risk: you only look at images and codes on your screen.
+      Taking part is voluntary, and stopping early has no penalty beyond the normal Prolific rules.</p>
       <p>Questions: ${CONFIG.CONTACT}</p>
       <p>Do you agree to take part?</p>
     </div>`,

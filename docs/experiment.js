@@ -105,6 +105,8 @@ function compareTrial(t, phase, blockIndex) {
       edge_match: t.edge_match ?? null,
     },
     on_finish: (d) => {
+      // Caps Lock gives "F"/"J": compare in lower case.
+      d.response = typeof d.response === "string" ? d.response.toLowerCase() : d.response;
       d.said_same = d.response === "f";
       d.correct = d.said_same === (d.correct_response === "same");
       d.false_accept = d.correct_response === "different" && d.said_same;
@@ -137,7 +139,7 @@ function attentionTrial(n) {
     stimulus: `<p class="attn">This is an attention check.<br>Please press <b>${key.toUpperCase()}</b> now.</p>`,
     choices: ["f", "j"],
     data: { task: "attention", attention_index: n, expected_key: key },
-    on_finish: (d) => (d.passed = d.response === key),
+    on_finish: (d) => (d.passed = String(d.response).toLowerCase() === key),
   };
 }
 

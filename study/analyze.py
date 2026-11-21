@@ -23,7 +23,29 @@ HARD = {"phash_hard", "ssim_hard", "hex_hard"}
 
 def load(paths):
     frames = [pd.read_csv(p) for p in paths]
-    return pd.concat(frames, ignore_index=True)
+    return rescore(pd.concat(frames, ignore_index=True))
+
+
+def rescore(df):
+    """Score key presses case-insensitively.
+
+    Versions of the experiment before 2026-11-21 compared the pressed key
+    with "f"/"j" case-sensitively, so a participant with Caps Lock on was
+    scored as answering "different" on every trial and failing every
+    attention check. The raw key is saved, so the scores are recomputed
+    here from it.
+    """
+    df = df.copy()
+    key = df.response.astype(str).str.strip().str.lower()
+    cmp = df.task == "compare"
+    df.loc[cmp, "said_same"] = key[cmp].eq("f")
+    df.loc[cmp, "correct"] = df.loc[cmp, "said_same"] == df.loc[cmp, "correct_response"].eq("same")
+    df.loc[cmp, "false_accept"] = df.loc[cmp, "correct_response"].eq("different") & df.loc[cmp, "said_same"].astype(bool)
+    att = df.task == "attention"
+    if att.any():
+        expected = df.loc[att, "expected_key"] if "expected_key" in df else pd.Series("j", index=df.index[att])
+        df.loc[att, "passed"] = key[att].eq(expected.fillna("j").astype(str).str.lower())
+    return df
 
 
 def exclusions(df, include_debug=False):

@@ -120,3 +120,13 @@ Run `study/analyze.py` unchanged.
 
 **ACTION:** state the review body and decision (exempt determination, or
 approval number). The consent text is in `docs/experiment.js`.
+
+## Deviations
+
+1. **Case-insensitive scoring (found 2026-11-21, after data collection).**
+   The experiment compared the pressed key with "f"/"j" case-sensitively.
+   Three participants had Caps Lock on, so every "same" answer was scored as
+   "different" and every attention check as failed, even though their raw
+   keys were correct. The raw key is saved for every trial, so
+   `study/analyze.py` now scores all keys case-insensitively. This changes
+   no rule; it only fixes the scoring. The experiment code was fixed too.

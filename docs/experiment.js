@@ -3,11 +3,13 @@
 "use strict";
 
 const CONFIG = {
-  // ACTION: web-app URL of the Google Apps Script in study/save_to_drive.gs
-  SAVE_URL: "https://script.google.com/macros/s/AKfycbxAk2yTh4d9gVA2rl1YlxDcnQlhpq0Mxjju-RhtK5OH1_gTSO1hrG6fU4nKO_NAeDsbrw/exec",
-  PROLIFIC_COMPLETION_CODE: "C1L65YLF",
-  // ACTION: researcher contact shown on the consent page
-  CONTACT: "shubhambtps@live.in",
+  // The data collection (Prolific, November 2026) is closed. The values used
+  // then are removed so that the public copy holds no live endpoint, completion
+  // code or personal contact. To run the study again, set all three (see
+  // study/README.md).
+  SAVE_URL: "",
+  PROLIFIC_COMPLETION_CODE: "",
+  CONTACT: "the researcher, through Prolific's messaging",
   DISPLAY_PX: 192,
   MIN_WINDOW_WIDTH: 900,
 };

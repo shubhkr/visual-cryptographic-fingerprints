@@ -20,3 +20,11 @@ Main columns for comparison trials (`task == "compare"`, `phase == "main"`):
 hex_hard), `target` and `candidate` (SHA-256 digests), `phash`, `ssim`,
 `edge_match` (pair closeness), `response` (key), `said_same`, `correct`, `rt`
 (ms).
+
+Exploratory metric correlations (MS-SSIM, pixel difference; reads the stimuli
+in `docs/stimuli/`):
+
+    python study/metric_check.py data/human_study/trials.csv
+
+Its output is saved in `metric_check_output.txt`. The analysis needs
+`statsmodels` for the regression models (in `requirements.txt`).

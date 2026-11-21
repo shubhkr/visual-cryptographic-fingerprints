@@ -25,4 +25,30 @@ life_unmirrored     0.0873   -0.0184          0.0694         0.0243
         voronoi    -0.0030    0.0593          0.0243         0.0417
            walk     0.0415    0.1711          0.0451         0.0694 
 
-median RT (ms), correct trials: {'hex': 2884.0, 'life_mirrored': 1496.0, 'life_unmirrored': 2064.0, 'voronoi': 1573.0, 'walk': 1668.0}
+median RT (ms), correct trials: {'hex': 2884.0, 'life_mirrored': 1496.0, 'life_unmirrored': 2064.0, 'voronoi': 1573.0, 'walk': 1668.0} 
+
+95% CI of differences in false acceptance (percentage points)
+  walk_minus_hex               +3.30 [+0.97, +5.63]
+  life_mirrored_minus_hex      +1.56 [-1.29, +4.41]
+  life_unmirrored_minus_hex    +2.26 [-1.40, +5.92]
+  voronoi_minus_hex            +0.87 [-1.38, +3.11]
+  mirrored_minus_unmirrored    -0.69 [-2.92, +1.53]
+
+per-participant median RT on correct trials, visual vs hex
+  walk             46/48 faster, median 1697 vs hex 3411 ms, Wilcoxon p=4.7e-11
+  life_mirrored    46/48 faster, median 1493 vs hex 3411 ms, Wilcoxon p=5.4e-11
+  life_unmirrored  43/48 faster, median 2109 vs hex 3411 ms, Wilcoxon p=7e-09
+  voronoi          45/48 faster, median 1560 vs hex 3411 ms, Wilcoxon p=4.1e-11
+
+mixed-effects logistic regression (hard mismatches), odds ratio vs hex [95% interval]
+  walk             OR 2.33 [1.59, 3.41]
+  life_mirrored    OR 1.56 [1.00, 2.42]
+  life_unmirrored  OR 1.89 [1.25, 2.85]
+  voronoi          OR 1.21 [0.75, 1.95]
+  (variational intervals are known to be narrow; see the GEE below)
+
+GEE logistic regression (clustered by participant), odds ratio vs hex [95% CI]
+  walk             OR 2.44 [1.02, 5.84], p=0.045
+  life_mirrored    OR 1.67 [0.61, 4.59], p=0.320
+  life_unmirrored  OR 1.97 [0.62, 6.28], p=0.249
+  voronoi          OR 1.37 [0.57, 3.28], p=0.481

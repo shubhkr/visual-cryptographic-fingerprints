@@ -10,7 +10,7 @@ import json
 import os
 import re
 import sys
-from math import comb, log2
+from math import comb, floor, log2
 
 import numpy as np
 
@@ -99,6 +99,14 @@ vo28 = scale["voronoi"]["tail"]["extrapolated_best_of_M_pooled"]["2^28"]["p_best
 cn28 = scale["cellular_nosym"]["tail"]["extrapolated_best_of_M_pooled"]["2^28"]["p_best_le_4"]
 ideal28 = 1 - np.exp((2.0 ** 28) * np.log1p(-cdf_ideal[4]))
 
+from scipy.stats import chi2  # noqa: E402
+rw_tail = scale["randomwalk"]["tail"]
+rw_k = int(sum(rw_tail["hist"][:5]))
+_scale = 2.0 ** 28 / rw_tail["pairs"]  # expected events at 2^28 candidates per observed event
+rw28_lo = 1 - np.exp(-_scale * chi2.ppf(0.025, 2 * rw_k) / 2) if rw_k else 0.0
+rw28_hi = 1 - np.exp(-_scale * chi2.ppf(0.975, 2 * rw_k + 2) / 2)
+assert abs((1 - np.exp(-_scale * rw_k)) - rw28) < 0.02, "pooled estimate should equal 1-exp(-k)"
+
 cn_hist = scale["cellular_nosym"]["tail"]["hist"]
 V["CN_TAIL_MIN"] = str(next(k for k, c in enumerate(cn_hist) if c > 0))
 V["SCALE_TEXT"] = (
@@ -110,9 +118,14 @@ V["SCALE_TEXT"] = (
     f"target{'s' if frac_le('randomwalk', 4) != 1 else ''} (mean {V['RW_S20_MEAN']}) and "
     f"Voronoi {V['VO_S20_MIN']} (mean {V['VO_S20_MEAN']}), against a median of 13 for an ideal "
     f"encoding. Both have heavier lower tails than the ideal even though their mean distance "
-    f"is close to 32. Under the pooled distribution, the probability that a target has a "
-    f"candidate within 4 bits at $2^{{28}}$ is {rw28:.2f} for random-walk, against about "
-    f"$10^{{-5}}$ for the ideal. Voronoi is predicted to stay above the threshold at "
+    f"is close to 32. Budgets beyond $2^{{20}}$ rest on extrapolation, so we treat them as "
+    f"exploratory. Only {rw_k} random-walk pairs in the tail sample were within 4 bits. Taken "
+    f"at face value, the pooled distribution gives a probability of {rw28:.2f} that a target has "
+    f"a candidate within 4 bits at $2^{{28}}$ (about $10^{{-5}}$ for the ideal), but a 95\\% "
+    f"Poisson interval on {rw_k} events spans {rw28_lo:.2f} to "
+    f"{'nearly 1' if rw28_hi > 0.995 else f'{rw28_hi:.2f}'}, and pooling over "
+    f"targets of different difficulty can overstate the probability for a fixed target. "
+    f"Voronoi is predicted to stay above the threshold at "
     f"$2^{{28}}$ (median best {V['VO_P28']}, against 10 for the ideal). The unmirrored cellular encoding "
     f"behaves like the ideal, with a mean best of {V['CN_S20_MEAN']} at $2^{{20}}$ and no pair "
     f"closer than {V['CN_TAIL_MIN']} bits among the $2^{{28}}$ pairs of the tail sample. "
@@ -127,7 +140,11 @@ for key, name in (("randomwalk", "random-walk"), ("cellular", "mirrored cellular
     n = t["candidates"]
     c = n - t["distinct_phash_values"]
     ent.append(f"{c:,} ({name})".replace(",", "{,}"))
-    bits.append(f"{log2(n * n / (2 * c)):.0f} ({name})" if c > 0 else f"more than 39 ({name})")
+    # c counts repeated values (outputs whose pHash already occurred); when repeats
+    # are rare it approximates the number of colliding pairs. With no repeat, use the
+    # 95% upper bound of 3 expected pairs.
+    bits.append(f"{log2(n * n / (2 * c)):.0f} ({name})" if c > 0
+                else f"more than {floor(log2(n * n / (2 * 3))):.0f} ({name}, 95\\% bound)")
 V["ENT_TEXT"] = ", ".join(ent[:-1]) + " and " + ent[-1]
 V["ENT_BITS"] = ", ".join(bits[:-1]) + " and " + bits[-1]
 
@@ -268,15 +285,14 @@ V["SWEEP_TABLE"] = (
 V["IMPL1"] = (
     f"Under pHash, random-walk, Voronoi and the mirrored cellular encoding all have heavier "
     f"lower tails than an ideal encoding. The mirrored cellular encoding reaches the 5-bit "
-    f"threshold for every target with $2^{{20}}$ random candidates, and random-walk is "
-    f"predicted to do so for most targets within $2^{{28}}$. Voronoi stays above the threshold "
-    f"in our data, with a margin that shrinks as the budget grows. Under SSIM, random-walk candidates "
-    f"reach {V['RW_SS16']} at $2^{{16}}$. The unmirrored cellular encoding is the best "
-    f"configuration under both metrics, with pHash statistics indistinguishable from an ideal "
-    f"hash and the lowest SSIM. It is also close to uniform random texture, which people are "
-    f"likely to find hardest to tell apart at a glance, so the metrics reward the property a "
-    f"human comparison may lack most. Nothing in our data shows that any configuration is "
-    f"safe, and without human data nothing could."
+    f"threshold for every target with $2^{{20}}$ random candidates, and our exploratory "
+    f"extrapolation suggests that random-walk may approach it at larger budgets. Voronoi stays "
+    f"above the threshold in our data, with a margin that shrinks as the budget grows. Under SSIM, "
+    f"random-walk candidates reach {V['RW_SS16']} at $2^{{16}}$. The unmirrored cellular encoding "
+    f"is the best configuration under both metrics, with pHash statistics indistinguishable from "
+    f"an ideal hash and the lowest SSIM, yet it is close to uniform random texture and was the "
+    f"slowest visual encoding for people to compare (Section~\\ref{{sec:study}}). Nothing in our "
+    f"data shows that any configuration is safe."
 )
 
 # --- matched-pair benchmark (measure_scale.py) ---------------------------

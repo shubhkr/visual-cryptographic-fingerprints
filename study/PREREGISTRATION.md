@@ -1,14 +1,18 @@
 # Preregistration: Can people tell visual fingerprints of AI artifacts apart?
 
-Draft for OSF or AsPredicted. Fill in the items marked **ACTION** before you
-register, and do not change the design after data collection starts.
+**Status (added 2026-11-21).** This is the analysis plan as it stood before
+data collection, at commit `b14a417` (2026-11-20 19:28 UTC); the Prolific
+study was published at 19:44 UTC. The plan was committed to this public
+repository but not registered with OSF or AsPredicted. Items marked
+"not filled in" were open at that time. What actually happened, including
+deviations, is recorded at the end under **Record of the study**.
 
 ## 1. Data collection status
 
 No data have been collected for this study when this document is registered.
 The stimuli (`docs/stimuli.js`, version `vcf-study-v1`) and the analysis
-script (`study/analyze.py`) are frozen at the registered commit. **ACTION:**
-record the commit hash here.
+script (`study/analyze.py`) are frozen at the registered commit. (Not filled in before data collection: the
+commit is `b14a417`.)
 
 ## 2. Research questions
 
@@ -71,8 +75,8 @@ Participants are told that different releases can look similar.
 ## 6. Sample
 
 **Platform:** Prolific. Adults, fluent in English, desktop or laptop only,
-approval rate of at least 95%. Pay: **ACTION** (at least $12/hour for an
-estimated 15 minutes).
+approval rate of at least 95%. Pay: (not filled in before data collection; at least $12/hour for an
+estimated 15 minutes was the plan, see the Record).
 
 **Size:** 48 included participants, after a pilot of 8 that is not analysed.
 Recruitment continues until 48 participants meet the inclusion criteria, up to
@@ -118,8 +122,32 @@ Run `study/analyze.py` unchanged.
 
 ## 9. Ethics
 
-**ACTION:** state the review body and decision (exempt determination, or
-approval number). The consent text is in `docs/experiment.js`.
+(Not filled in before data collection; see the Record.) The consent text is
+in `docs/experiment.js`.
+
+## Record of the study (added after data collection)
+
+- **Run.** Prolific, published 2026-11-20 19:44 UTC after a manual review by
+  Prolific, completed 2026-11-21. Filters: desktop only, fluent English,
+  normal or corrected vision, approval rate 95–100%.
+- **Pay.** $2.40 for an estimated 18 minutes ($8/hour, Prolific's minimum),
+  not the $12/hour in the plan. The median completion time was 12.3 minutes.
+  All submissions were approved, including the excluded participant's.
+- **Pilot.** The paid pilot of 8 was not run. Two informal runs by
+  volunteers (not analysed) set the time estimate.
+- **Sample.** 49 completed; 1 excluded by rule 4 (accuracy on identical pairs
+  below 50%), leaving 48. No replacements were needed.
+- **Ethics.** The researcher is independent and has no institutional review
+  board, so the study was not reviewed by one. The consent page says so;
+  safeguards are described in the paper's Ethical Considerations appendix.
+- **Analyses added after data collection** (not confirmatory): 95% CIs of the
+  H1/H2 differences, a paired response-time comparison on correct trials, the
+  planned mixed-effects model (fitted by variational Bayes in statsmodels) and
+  a participant-clustered GEE logistic regression (`study/analyze.py`), and
+  correlations with MS-SSIM and pixel difference (`study/metric_check.py`).
+- **Data.** `data/human_study/trials.csv` (anonymised by
+  `study/anonymize.py`) and the full output in
+  `data/human_study/analysis_output.txt`.
 
 ## Deviations
 

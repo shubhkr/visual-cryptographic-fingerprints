@@ -25,7 +25,7 @@ This repository contains:
   digest pairs scored under 12 configurations and 3 display sizes, with
   fixed and proportional SSIM windows and per-pair SSIM/pHash rank correlation
 - **`experiments/results/v2_*.json`**, raw results
-- **`study/`** and **`docs/`**, a preregistered human study (not yet run)
+- **`study/`**, **`docs/`** and **`data/human_study/`**, a human comparison study with 48 participants, its anonymised data and analysis
 - the reviewed-version code and results (`src/vcf_prototype.py`,
   `experiments/results/collision_results.json`,
   `experiments/results/ca_shake_replication.json`), kept for provenance, and
@@ -91,19 +91,30 @@ produces an unrelated SHA-256 digest.
 **Conclusion:** none of the three families is deployment-ready, and
 single-metric validation of visual fingerprints is unsound. The unmirrored
 cellular encoding scores like an ideal hash under both metrics while being close
-to random texture, which people are likely worst at telling apart. Only a
-human-subject study can settle which encodings work.
+to random texture. The human study below tests what people actually confuse.
 
 ## Human study
 
-`study/` and `docs/` contain a preregistered comparison study, ready to run but
-not yet run. Participants judge whether two fingerprints show the same release
+`study/` and `docs/` contain the comparison study, run on Prolific in November
+2026 with 48 included participants. Participants judge whether two fingerprints show the same release
 under five representations (hex, random walk, mirrored and unmirrored cellular,
 Voronoi). Hard mismatches are chosen under the same attacker budget (2^16
 candidates) for every representation. The experiment is a static jsPsych page
 in `docs/` (GitHub Pages), saves data to a private Google Drive folder through
 a small Apps Script, and recruits on Prolific. See `study/README.md` to launch it and `study/PREREGISTRATION.md`
-for the design.
+for the design, the analysis plan as committed before data collection, and a
+record of what happened (it was not registered with a registry).
+
+Results (hard mismatches from 2^16 candidates): every visual encoding was
+faster to compare than hexadecimal (43–46 of 48 participants faster); the
+random walk had a higher false-acceptance rate than hexadecimal (5.7% vs 2.4%,
+Holm p = 0.026); for the other encodings no difference from hexadecimal was
+detected (95% CIs allow increases of about 3–6 points); mirrored vs unmirrored
+cellular −0.7 points [−2.9, +1.5]; metric closeness correlated weakly with
+acceptance (|rho| ≤ 0.17). Reproduce with
+
+    python study/analyze.py data/human_study/trials.csv
+    python study/metric_check.py data/human_study/trials.csv
 
 ## Repository structure
 
@@ -195,10 +206,12 @@ v1 Voronoi renderer.
 
 ### Caveats
 
-- **No human-subject data.** The results above are an argument that automated
-  proxies cannot substitute for it.
-- **Predicted values** for 2^24 and 2^28 extrapolate a pooled distance
-  distribution measured over 2^28 target–candidate pairs; individual targets vary.
+- **One human-study protocol.** The human data cover one attacker budget
+  (2^16), side-by-side comparison and an online sample; see the paper.
+- **Predicted values** for 2^24 and 2^28 are exploratory: they extrapolate a
+  pooled distance distribution measured over 2^28 target–candidate pairs, rest
+  on few tail events (two random-walk pairs within 4 bits), and individual
+  targets vary.
 - **pHash is a proxy** with known adversarial weaknesses, not ground truth.
 - **No textual baseline** (hex, Base32, sentence encodings) in the automated
   measurements. The human study includes hexadecimal as its baseline.
